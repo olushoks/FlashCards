@@ -9,16 +9,19 @@ class MainPage extends Component {
       name: "",
       display: "",
       displayMain: "hide",
+      error: "",
     };
   }
 
   handleChange = (e) => {
-    this.setState({ name: e.target.value });
+    let name = e.target.value;
+    name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+    this.setState({ name });
   };
 
   handleClick = () => {
     if (!this.state.name) {
-      alert(`You must enter a name to continue`);
+      this.setState({ error: "You must enter a name to continue" });
     } else {
       alert(`You Clicked Me. My name is ${this.state.name}`);
       this.setState({ display: "hide", displayMain: "" });
@@ -43,6 +46,7 @@ class MainPage extends Component {
           handleChange={this.handleChange}
           handleClick={this.handleClick}
           display={this.state.display}
+          errorMessage={this.state.error}
         />
         {this.showMain()}
       </div>

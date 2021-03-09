@@ -5,7 +5,6 @@ import MainPage from "./MainPage/main";
 function App() {
   return (
     <div>
-      {/* <WelcomePage /> */}
       <MainPage />
     </div>
   );
