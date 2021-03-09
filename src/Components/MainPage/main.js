@@ -8,6 +8,7 @@ class MainPage extends Component {
     this.state = {
       name: "",
       display: "",
+      displayMain: "hide",
     };
   }
 
@@ -20,18 +21,20 @@ class MainPage extends Component {
       alert(`You must enter a name to continue`);
     } else {
       alert(`You Clicked Me. My name is ${this.state.name}`);
-      this.setState({ display: "hide" });
+      this.setState({ display: "hide", displayMain: "" });
     }
   };
 
-  main = (
-    <div>
-      <p>Great to have you here</p>
-      <p>What would you like to do</p>
-      <button>View Collections</button>
-      <button>Create A Collection</button>
-    </div>
-  );
+  showMain = () => {
+    return (
+      <div className={this.state.displayMain}>
+        <p>Great to have you here {this.state.name}</p>
+        <p>What would you like to do</p>
+        <button>View Collections</button>
+        <button>Create A Collection</button>
+      </div>
+    );
+  };
 
   render() {
     return (
@@ -41,7 +44,7 @@ class MainPage extends Component {
           handleClick={this.handleClick}
           display={this.state.display}
         />
-        {}
+        {this.showMain()}
       </div>
     );
   }
