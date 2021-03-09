@@ -38,9 +38,15 @@ class MainPage extends Component {
           <button>View Collections</button>
           <button>Create A Collection</button>
         </div>
-        <i className="fas fa-long-arrow-alt-left back">Go Back</i>
+        <div onClick={this.goBackButton}>
+          <i className="fas fa-long-arrow-alt-left back">Go Back</i>
+        </div>
       </div>
     );
+  };
+
+  goBackButton = () => {
+    this.setState({ display: "", displayMain: "hide" });
   };
 
   render() {
