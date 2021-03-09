@@ -1,10 +1,12 @@
 import React from "react";
-import WelcomePage from "./WelcomePage/welcome";
+// import WelcomePage from "./WelcomePage/welcome";
+import MainPage from "./MainPage/main";
 
 function App() {
   return (
     <div>
-      <WelcomePage />
+      {/* <WelcomePage /> */}
+      <MainPage />
     </div>
   );
 }
