@@ -15,7 +15,8 @@ class MainPage extends Component {
 
   handleChange = (e) => {
     let name = e.target.value;
-    name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+    // Fine tune name provided to be Title Case
+    name = name[0].toUpperCase() + name.slice(1).toLowerCase().trim();
     this.setState({ name });
   };
 
@@ -23,7 +24,7 @@ class MainPage extends Component {
     if (!this.state.name) {
       this.setState({ error: "You must enter a name to continue" });
     } else {
-      alert(`You Clicked Me. My name is ${this.state.name}`);
+      // alert(`You Clicked Me. My name is ${this.state.name}`);
       this.setState({ display: "hide", displayMain: "" });
     }
   };
@@ -33,8 +34,11 @@ class MainPage extends Component {
       <div className={this.state.displayMain}>
         <p>Great to have you here {this.state.name}</p>
         <p>What would you like to do</p>
-        <button>View Collections</button>
-        <button>Create A Collection</button>
+        <div>
+          <button>View Collections</button>
+          <button>Create A Collection</button>
+        </div>
+        <i className="fas fa-long-arrow-alt-left back">Go Back</i>
       </div>
     );
   };
