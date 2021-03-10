@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import WelcomePage from "../WelcomePage/welcome";
 import "./main.css";
 import viewCollections from "../Collections/viewCollections";
+import addCollection from "../Collections/addCollection";
 
 class MainPage extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class MainPage extends Component {
   //     });
   // }
   // FETCH COLLECTIONS FROM API
-  viewCollections = async () => {
+  getCollections = async () => {
     this.setState({ view: "displayCollections" });
     await axios
       .get("http://localhost:5000/api/collections")
@@ -66,9 +67,17 @@ class MainPage extends Component {
 
   // CREATE NEW COLLECTION
   createCollection = () => {
-    alert(`Lets create a collection`);
     this.setState({ view: "createCollection" });
     console.log(this.state.view);
+  };
+
+  // DISPLAY VIEW
+  displayView = () => {
+    if (this.state.view === "displayCollections") {
+      return viewCollections;
+    } else if (this.state.view === "createCollection") {
+      return addCollection;
+    }
   };
 
   showMain = () => {
@@ -77,7 +86,7 @@ class MainPage extends Component {
         <p>Great to have you here {this.state.name}</p>
         <p>What would you like to do</p>
         <div>
-          <button onClick={this.viewCollections}>View Collections</button>
+          <button onClick={this.getCollections}>View Collections</button>
           <button onClick={this.createCollection}>Create A Collection</button>
         </div>
         <div onClick={this.goBackButton}>

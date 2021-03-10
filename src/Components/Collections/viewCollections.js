@@ -1,5 +1,5 @@
 import React from "react";
-import "./addCollections.css";
+import "./viewCollections.css";
 
 function viewCollections(props) {
   const collections = props.collections;
