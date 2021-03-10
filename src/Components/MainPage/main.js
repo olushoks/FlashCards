@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { Component } from "react";
 import WelcomePage from "../WelcomePage/welcome";
 import "./main.css";
@@ -29,14 +30,33 @@ class MainPage extends Component {
     }
   };
 
+  // VIEW COLLECTIONS
+  async viewCollections() {
+    alert(`Lets view all collections`);
+    await axios
+      .get("http://localhost:5000/api/collections")
+      .then((response) => {
+        const { data } = response;
+        console.log(response);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  createCollection = () => {
+    alert(`Lets create a collection`);
+  };
+
   showMain = () => {
     return (
       <div className={this.state.displayMain}>
         <p>Great to have you here {this.state.name}</p>
         <p>What would you like to do</p>
         <div>
-          <button>View Collections</button>
-          <button>Create A Collection</button>
+          <button onClick={this.viewCollections}>View Collections</button>
+          <button onClick={this.createCollection}>Create A Collection</button>
         </div>
         <div onClick={this.goBackButton}>
           <i className="fas fa-long-arrow-alt-left back">Go Back</i>
