@@ -13,6 +13,7 @@ class MainPage extends Component {
       name: "",
       display: "",
       displayMain: "hide",
+      collectionView: "",
       error: "",
       view: "",
     };
@@ -35,10 +36,14 @@ class MainPage extends Component {
 
   getCollections = async () => {
     await axios
-      .get("http://localhost:5000/api/collections")
+      .get("http://localhost:5000/api/collections/")
       .then((response) => {
         const { data } = response;
-        this.setState({ view: "displayCollections", collections: data });
+        this.setState({
+          view: "displayCollections",
+          collections: data,
+          displayMain: "hide",
+        });
 
         console.log(this.state.view);
       })
@@ -56,7 +61,14 @@ class MainPage extends Component {
   // DISPLAY VIEW
   displayView = () => {
     if (this.state.view === "displayCollections") {
-      return <ShowCollections collections={this.state.collections} />;
+      return (
+        <div className={this.state.collectionView}>
+          <ShowCollections collections={this.state.collections} />
+          <div onClick={this.goBackButton}>
+            <i className="fas fa-long-arrow-alt-left back">Go Back</i>
+          </div>
+        </div>
+      );
     } else if (this.state.view === "createCollection") {
       return <AddCollection />;
     }
@@ -71,15 +83,15 @@ class MainPage extends Component {
           <button onClick={this.getCollections}>View Collections</button>
           <button onClick={this.createCollection}>Create A Collection</button>
         </div>
-        <div onClick={this.goBackButton}>
+        {/* <div onClick={this.goBackButton}>
           <i className="fas fa-long-arrow-alt-left back">Go Back</i>
-        </div>
+        </div> */}
       </div>
     );
   };
 
   goBackButton = () => {
-    this.setState({ display: "", displayMain: "hide" });
+    this.setState({ display: "hide", displayMain: "", collectionView: "hide" });
   };
 
   render() {
