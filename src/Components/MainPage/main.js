@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import WelcomePage from "../WelcomePage/welcome";
 import "./main.css";
+import viewCollections from "../Collections/viewCollections";
 
 class MainPage extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class MainPage extends Component {
       display: "",
       displayMain: "hide",
       error: "",
+      view: "",
     };
   }
 
@@ -25,28 +27,48 @@ class MainPage extends Component {
     if (!this.state.name) {
       this.setState({ error: "You must enter a name to continue" });
     } else {
-      // alert(`You Clicked Me. My name is ${this.state.name}`);
       this.setState({ display: "hide", displayMain: "" });
     }
   };
 
-  // VIEW COLLECTIONS
-  async viewCollections() {
-    alert(`Lets view all collections`);
+  // // FETCH COLLECTIONS FROM API
+  // async viewCollections() {
+  //   this.setState({ view: "displayCollections" });
+  //   await axios
+  //     .get("http://localhost:5000/api/collections")
+  //     .then((response) => {
+  //       const { data } = response;
+  //       console.log(response);
+  //       console.log(data);
+  //       console.log(data[0].title);
+  //       console.log(this.state.view);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+  // FETCH COLLECTIONS FROM API
+  viewCollections = async () => {
+    this.setState({ view: "displayCollections" });
     await axios
       .get("http://localhost:5000/api/collections")
       .then((response) => {
         const { data } = response;
         console.log(response);
         console.log(data);
+        console.log(data[0].title);
+        console.log(this.state.view);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
 
+  // CREATE NEW COLLECTION
   createCollection = () => {
     alert(`Lets create a collection`);
+    this.setState({ view: "createCollection" });
+    console.log(this.state.view);
   };
 
   showMain = () => {
@@ -79,6 +101,7 @@ class MainPage extends Component {
           errorMessage={this.state.error}
         />
         {this.showMain()}
+        {this.state.view}
       </div>
     );
   }
