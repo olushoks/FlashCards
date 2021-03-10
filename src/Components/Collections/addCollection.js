@@ -1,6 +1,6 @@
 import React from "react";
 import "./addCollection.css";
 
-function addCollection(props) {}
+function AddCollection(props) {}
 
-export default addCollection;
+export default AddCollection;

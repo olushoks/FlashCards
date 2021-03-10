@@ -1,15 +1,18 @@
 import React from "react";
 import "./viewCollections.css";
 
-function viewCollections(props) {
+function ShowCollections(props) {
   const collections = props.collections;
   if (collections.length === 0) {
     return <div>No Collection Found</div>;
   } else {
-    const collection = collections.map((el) => {
+    const collection = collections.map((el, index) => {
       return (
-        <div>
-          <h3>{el.title}</h3>
+        <div key={index + 1}>
+          <h3>
+            {el.title}
+            {index}
+          </h3>
         </div>
       );
     });
@@ -17,4 +20,4 @@ function viewCollections(props) {
   }
 }
 
-export default viewCollections;
+export default ShowCollections;

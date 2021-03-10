@@ -2,13 +2,14 @@ import axios from "axios";
 import React, { Component } from "react";
 import WelcomePage from "../WelcomePage/welcome";
 import "./main.css";
-import viewCollections from "../Collections/viewCollections";
-import addCollection from "../Collections/addCollection";
+import ShowCollections from "../Collections/viewCollections";
+import AddCollection from "../Collections/addCollection";
 
 class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      collections: [],
       name: "",
       display: "",
       displayMain: "hide",
@@ -32,32 +33,13 @@ class MainPage extends Component {
     }
   };
 
-  // // FETCH COLLECTIONS FROM API
-  // async viewCollections() {
-  //   this.setState({ view: "displayCollections" });
-  //   await axios
-  //     .get("http://localhost:5000/api/collections")
-  //     .then((response) => {
-  //       const { data } = response;
-  //       console.log(response);
-  //       console.log(data);
-  //       console.log(data[0].title);
-  //       console.log(this.state.view);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
-  // FETCH COLLECTIONS FROM API
   getCollections = async () => {
-    this.setState({ view: "displayCollections" });
     await axios
       .get("http://localhost:5000/api/collections")
       .then((response) => {
         const { data } = response;
-        console.log(response);
-        console.log(data);
-        console.log(data[0].title);
+        this.setState({ view: "displayCollections", collections: data });
+
         console.log(this.state.view);
       })
       .catch((error) => {
@@ -74,9 +56,9 @@ class MainPage extends Component {
   // DISPLAY VIEW
   displayView = () => {
     if (this.state.view === "displayCollections") {
-      return viewCollections;
+      return <ShowCollections collections={this.state.collections} />;
     } else if (this.state.view === "createCollection") {
-      return addCollection;
+      return <AddCollection />;
     }
   };
 
@@ -110,7 +92,7 @@ class MainPage extends Component {
           errorMessage={this.state.error}
         />
         {this.showMain()}
-        {this.state.view}
+        {this.displayView()}
       </div>
     );
   }
