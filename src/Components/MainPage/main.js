@@ -43,9 +43,10 @@ class MainPage extends Component {
           view: "displayCollections",
           collections: data,
           displayMain: "hide",
+          collectionView: "",
         });
 
-        console.log(this.state.view);
+        // console.log(this.state.view);
       })
       .catch((error) => {
         console.log(error);
@@ -54,8 +55,12 @@ class MainPage extends Component {
 
   // CREATE NEW COLLECTION
   createCollection = () => {
-    this.setState({ view: "createCollection" });
-    console.log(this.state.view);
+    this.setState({
+      view: "createCollection",
+      displayMain: "hide",
+      collectionView: "",
+    });
+    // console.log(this.state.view);
   };
 
   // DISPLAY VIEW
@@ -70,7 +75,14 @@ class MainPage extends Component {
         </div>
       );
     } else if (this.state.view === "createCollection") {
-      return <AddCollection />;
+      return (
+        <div className={this.state.collectionView}>
+          <AddCollection />
+          <div onClick={this.goBackButton}>
+            <i className="fas fa-long-arrow-alt-left back">Go Back</i>
+          </div>
+        </div>
+      );
     }
   };
 
@@ -91,7 +103,12 @@ class MainPage extends Component {
   };
 
   goBackButton = () => {
-    this.setState({ display: "hide", displayMain: "", collectionView: "hide" });
+    this.setState({
+      display: "hide",
+      displayMain: "",
+      collectionView: "hide",
+      // view: "",
+    });
   };
 
   render() {
