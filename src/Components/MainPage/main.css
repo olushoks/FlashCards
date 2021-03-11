@@ -2,6 +2,13 @@
   display: none;
 }
 
+.back {
+  font-size: 1.5rem;
+  color: #cfe418;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .main {
   width: 100vw;
   height: 100vh;

@@ -80,9 +80,12 @@ class MainPage extends Component {
       return (
         <div className={this.state.collectionView}>
           <AddCollection />
-          <div onClick={this.goBackButton}>
-            <i className="fas fa-long-arrow-alt-left back">Go Back</i>
-          </div>
+          <i
+            className="fas fa-long-arrow-alt-left back"
+            onClick={this.goBackButton}
+          >
+            Go Back
+          </i>
         </div>
       );
     }
@@ -102,9 +105,6 @@ class MainPage extends Component {
             Create A Collection
           </button>
         </div>
-        {/* <div onClick={this.goBackButton}>
-          <i className="fas fa-long-arrow-alt-left back">Go Back</i>
-        </div> */}
       </div>
     );
   };
