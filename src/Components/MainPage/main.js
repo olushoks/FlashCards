@@ -21,16 +21,18 @@ class MainPage extends Component {
 
   handleChange = (e) => {
     let name = e.target.value;
+    name = name.trim();
     // Fine tune name provided to be Title Case
-    name = name[0].toUpperCase() + name.slice(1).toLowerCase().trim();
     this.setState({ name });
   };
 
   handleClick = () => {
-    if (!this.state.name) {
+    let { name } = this.state;
+    if (!name) {
       this.setState({ error: "You must enter a name to continue" });
     } else {
-      this.setState({ display: "hide", displayMain: "" });
+      name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+      this.setState({ name, display: "hide", displayMain: "" });
     }
   };
 
