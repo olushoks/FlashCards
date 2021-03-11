@@ -15,7 +15,12 @@ function WelcomePage(props) {
           onChange={props.handleChange}
         ></input>
         <p>{props.errorMessage}</p>
-        <button type="submit" name="name" onClick={props.handleClick}>
+        <button
+          className="form-btn"
+          type="submit"
+          name="name"
+          onClick={props.handleClick}
+        >
           Continue
         </button>
       </div>

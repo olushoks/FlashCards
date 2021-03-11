@@ -89,13 +89,18 @@ class MainPage extends Component {
   };
 
   showMain = () => {
+    const style = `${this.state.displayMain} main container`;
     return (
-      <div className={this.state.displayMain}>
+      <div className={style}>
         <p>Great to have you here {this.state.name}</p>
-        <p>What would you like to do</p>
+        <p>What would you like to do?</p>
         <div>
-          <button onClick={this.getCollections}>View Collections</button>
-          <button onClick={this.createCollection}>Create A Collection</button>
+          <button className="collection-btn" onClick={this.getCollections}>
+            View Collections
+          </button>
+          <button className="collection-btn" onClick={this.createCollection}>
+            Create A Collection
+          </button>
         </div>
         {/* <div onClick={this.goBackButton}>
           <i className="fas fa-long-arrow-alt-left back">Go Back</i>

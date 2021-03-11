@@ -1,6 +1,21 @@
 .hide {
   display: none;
 }
-.back {
-  color: red;
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 5rem;
+}
+
+p {
+  color: #cfe418;
+}
+
+.collection-btn {
+  border: ridge #cfe418 0.1rem;
+  text-align: center;
+  color: #cfe418;
+  padding: 0.4rem 1rem;
+  margin-right: 0.2rem;
 }
