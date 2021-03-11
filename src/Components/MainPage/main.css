@@ -7,6 +7,7 @@
   color: #cfe418;
   font-weight: bold;
   cursor: pointer;
+  margin: 2rem 0 0 5rem;
 }
 
 .main {
@@ -17,6 +18,10 @@
 
 p {
   color: #cfe418;
+}
+
+.collection-div {
+  margin: 0 6rem;
 }
 
 .collection-btn {

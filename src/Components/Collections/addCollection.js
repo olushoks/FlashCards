@@ -18,13 +18,14 @@ function AddCollection() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="add-collect" onSubmit={handleSubmit}>
         <input
+          className="input-form"
           name="new-collection"
           placeholder="Enter Collection Title"
           onChange={handleChange}
         ></input>
-        <input type="submit" value="Submit"></input>
+        <input className="submit-btn" type="submit" value="Submit"></input>
       </form>
     </div>
   );

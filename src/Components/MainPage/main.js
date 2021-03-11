@@ -68,8 +68,9 @@ class MainPage extends Component {
   // DISPLAY VIEW
   displayView = () => {
     if (this.state.view === "displayCollections") {
+      const styles = `${this.state.collectionView} collection-div`;
       return (
-        <div className={this.state.collectionView}>
+        <div className={styles}>
           <ShowCollections collections={this.state.collections} />
           <div onClick={this.goBackButton}>
             <i className="fas fa-long-arrow-alt-left back">Go Back</i>
