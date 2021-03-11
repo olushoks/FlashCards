@@ -1,4 +1,44 @@
-.arrow {
-  font-size: 5rem;
-  color: red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(9, 39, 65);
 }
+
+.welcome {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 5rem;
+  /* background-color: aliceblue; */
+}
+
+.welcome-text {
+  font-size: 3rem;
+  text-align: center;
+  color: #cfe418;
+}
+
+.welcome-form {
+  font-size: 1rem;
+  text-align: center;
+  color: #cfe418;
+}
+
+input[type="text"] {
+  border: none;
+  border-bottom: solid red 0.2rem;
+  padding-left: 1rem;
+  color: #ffffff;
+}
+
+button {
+  border: ridge #cfe418 0.1rem;
+  text-align: center;
+  color: #cfe418;
+  padding: 0.4rem 1rem;
+}
+
+/* input[type="submit"] {
+  text-align: center;
+  color: green;
+} */

@@ -2,21 +2,29 @@ import React from "react";
 import "./welcome.css";
 
 function WelcomePage(props) {
+  const style = `${props.display} welcome container-sm container-md container-lg container-xl`;
   return (
-    <div className={props.display}>
-      <h2>Flash Card</h2>
-      <p>
-        Enter your name to continue
-        <input type="text" name="name" onChange={props.handleChange}></input>
-      </p>
-      <p>{props.errorMessage}</p>
-
-      <input
+    <div className={style}>
+      <h2 className="welcome-text">Flash Card</h2>
+      <div className="welcome-form">
+        <p>Enter your name to continue</p>
+        <input
+          type="text"
+          name="name"
+          autoFocus
+          onChange={props.handleChange}
+        ></input>
+        <p>{props.errorMessage}</p>
+        <button type="submit" name="name" onClick={props.handleClick}>
+          Continue
+        </button>
+      </div>
+      {/* <input
         type="submit"
         value="Continue"
         name="name"
         onClick={props.handleClick}
-      ></input>
+      ></input> */}
     </div>
   );
 }
