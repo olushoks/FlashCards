@@ -101,9 +101,11 @@ class MainPage extends Component {
         <div>
           <button className="collection-btn" onClick={this.getCollections}>
             View Collections
+            <i className="fas fa-binoculars"></i>
           </button>
           <button className="collection-btn" onClick={this.createCollection}>
             Create A Collection
+            <i className="fas fa-folder-plus"></i>
           </button>
         </div>
       </div>
