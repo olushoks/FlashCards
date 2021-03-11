@@ -8,11 +8,8 @@ function ShowCollections(props) {
   } else {
     const collection = collections.map((el, index) => {
       return (
-        <div key={index + 1}>
-          <h3>
-            {el.title}
-            {index}
-          </h3>
+        <div className="collection-display" key={index + 1}>
+          <h3>{el.title}</h3>
         </div>
       );
     });

@@ -1,0 +1,15 @@
+.collection-display {
+  width: 15rem;
+  display: inline-block;
+  padding: 5rem 3rem;
+  margin: 5rem 0.2rem;
+  color: #cfe418;
+  border: 0.2rem inset #cfe418;
+  text-align: center;
+  border-radius: 1rem 0.5rem;
+}
+
+.collection-display:hover {
+  background-color: #cfe418;
+  /* color: #092741; */
+}
