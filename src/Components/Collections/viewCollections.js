@@ -1,5 +1,6 @@
 import React from "react";
 import "./viewCollections.css";
+import DisplayCards from "../Cards/cards";
 
 function ShowCollections(props) {
   let cardsInCurrentCollection;
@@ -17,6 +18,22 @@ function ShowCollections(props) {
     [cardsInCurrentCollection] = cardsInCurrentCollection;
     console.log(cardsInCurrentCollection);
     console.log(cardsInCurrentCollection.length);
+  };
+
+  const displayCards = () => {
+    if (!cardsInCurrentCollection || cardsInCurrentCollection.length === 0)
+      return null;
+
+    return (
+      <div>
+        <DisplayCards cardsInCollection={cardsInCurrentCollection} />
+      </div>
+    );
+    // return cardsInCurrentCollection.length === 0 ? null : (
+    //   <div>
+    //     <DisplayCards cardsInCollection={cardsInCurrentCollection} />
+    //   </div>
+    // );
   };
 
   // CHECK IF COLLECTIONS ARE IN DATABASE AND RETURN IF YES
@@ -37,7 +54,13 @@ function ShowCollections(props) {
         </div>
       );
     });
-    return collection;
+    return (
+      <div>
+        {collection}
+        {displayCards()}
+        {/* <DisplayCards cardsInCollection={cardsInCurrentCollection} /> */}
+      </div>
+    );
   }
 }
 
