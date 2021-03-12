@@ -19,6 +19,7 @@ class MainPage extends Component {
     };
   }
 
+  // HANDLE CHANGE FOR NAME INPUT
   handleChange = (e) => {
     let name = e.target.value;
     name = name.trim();
@@ -26,6 +27,7 @@ class MainPage extends Component {
     this.setState({ name });
   };
 
+  // HANDLE BUTTON CLICK
   handleClick = () => {
     let { name } = this.state;
     if (!name) {
@@ -36,6 +38,7 @@ class MainPage extends Component {
     }
   };
 
+  // FECTCH COLLECTIONS FROM API AND STORE IN STATE VARIABLE
   getCollections = async () => {
     await axios
       .get("http://localhost:5000/api/collections/")
@@ -47,8 +50,7 @@ class MainPage extends Component {
           displayMain: "hide",
           collectionView: "",
         });
-
-        // console.log(this.state.view);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +64,6 @@ class MainPage extends Component {
       displayMain: "hide",
       collectionView: "",
     });
-    // console.log(this.state.view);
   };
 
   // DISPLAY VIEW

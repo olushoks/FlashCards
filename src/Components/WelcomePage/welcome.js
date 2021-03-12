@@ -24,12 +24,6 @@ function WelcomePage(props) {
           Continue
         </button>
       </div>
-      {/* <input
-        type="submit"
-        value="Continue"
-        name="name"
-        onClick={props.handleClick}
-      ></input> */}
     </div>
   );
 }
