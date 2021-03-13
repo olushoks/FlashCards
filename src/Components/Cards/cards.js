@@ -14,10 +14,12 @@ function DisplayCards(props) {
   }
 
   if (cardsInCollection.length === 0) {
-    cardToRender = <div></div>;
+    cardToRender = (
+      <div>There are no cards in {currentCollection.title} Collection</div>
+    );
   }
 
-  if (cardsInCollection.length > 0) {
+  if (cardsInCollection.length) {
     cardCount = cardsInCollection.length;
     cardToRender = (
       <div>

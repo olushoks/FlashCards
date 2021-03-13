@@ -8,7 +8,8 @@ class ShowCollections extends Component {
     this.state = {
       collections: props.collections,
       activeCollection: {},
-      cardsInActiveCollection: [],
+      // cardsInActiveCollection: [],
+      noCardsMessage: "",
     };
   }
 
@@ -43,10 +44,12 @@ class ShowCollections extends Component {
       cardsInActiveCollection: clickedCollection.cards,
     });
 
-    // alert(`Clicked`);
-    // CHECK IF COLLECTION HAS CARDS SUBDOCUMENT
+    //CHECK IF COLLECTION HAS CARDS SUBDOCUMENT
     // if (cardsInActiveCollection.length === 0) {
-    //   return console.log(`There are no cards in ${activeCollection.title}`);
+    //   console.log(`There are no cards in ${activeCollection.title}`);
+    //   this.setState({
+    //     noCardsMessage: `There are no cards in ${activeCollection.title} Collection`,
+    //   });
     // }
   };
 
@@ -60,6 +63,7 @@ class ShowCollections extends Component {
             currentCollection={this.state.activeCollection}
           />
         </div>
+        <p>{this.state.noCardsMessage}</p>
       </div>
     );
   }
