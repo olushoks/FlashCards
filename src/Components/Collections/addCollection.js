@@ -36,16 +36,34 @@ function AddCollection(props) {
   // ADD NEW CARD SUBDOCUMENT TO CURRENT COLLECTION
   if (props.action === "Add Card to Collection") {
     let newCard = {};
+    const collectionId = props.collectionId;
 
     const handleChange = (e) => {
       e.preventDefault();
       newCard[e.target.name] = e.target.value;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(newCard);
       e.target.reset();
+
+      let cardId;
+
+      await axios
+        .post("http://localhost:5000/api/cards", newCard)
+        .then((res) => {
+          const { data } = res;
+          cardId = data._id;
+          console.log(data);
+          console.log(cardId);
+          axios
+            .post(
+              `http://localhost:5000/api/collections/${collectionId}/cards/${cardId}`
+            )
+            .then((res) => console.log(res))
+            .catch((err) => err);
+        })
+        .catch((err) => err);
     };
 
     return (

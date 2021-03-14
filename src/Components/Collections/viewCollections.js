@@ -11,6 +11,7 @@ class ShowCollections extends Component {
       cardsInActiveCollection: null,
       cardCount: null,
       currentCard: 1,
+      form: "",
     };
   }
 
@@ -31,7 +32,7 @@ class ShowCollections extends Component {
           <div>
             <i
               className="fas fa-plus-square icon"
-              onClick={this.addCardForm}
+              onClick={() => this.addCardForm(el._id)}
             ></i>
           </div>
           <div onClick={() => this.getCardsInCollection(el)}>
@@ -44,9 +45,28 @@ class ShowCollections extends Component {
   };
 
   // ADD CARD TO COLLECTION FORM
-  addCardForm = () => {
-    // alert(`Clicked`);
-    return <AddCollection action="Add Card to Collection" />;
+  addCardForm = (collectionId) => {
+    console.log(collectionId);
+
+    this.setState({
+      form: (
+        <div>
+          <AddCollection
+            action="Add Card to Collection"
+            collectionId={collectionId}
+          />
+        </div>
+      ),
+    });
+    // return (
+    //   <div>
+
+    //   <AddCollection
+    //     action="Add Card to Collection"
+    //     collectionId={collectionId}
+    //   />
+    //   </div>
+    // );
   };
 
   // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
@@ -138,7 +158,7 @@ class ShowCollections extends Component {
       <div>
         {this.displayCollections()}
         {this.showCardsInCollection()}
-        {this.addCardForm()}
+        {this.state.form}
       </div>
     );
   }
