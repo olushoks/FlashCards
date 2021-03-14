@@ -7,7 +7,14 @@ function DisplayCards(props) {
   let cardCount;
   let currentCard = 0;
   let cardToRender;
-  //let cardToRender = <p>Render React Render: {props.title}</p>;
+
+  const previousCard = () => {
+    console.log(`Go to Previous`);
+  };
+
+  const nextCard = () => {
+    console.log(`Go to Next`);
+  };
 
   if (!cardsInCollection) {
     return null;
@@ -27,9 +34,11 @@ function DisplayCards(props) {
           <h6>{`FlashCard ${currentCard + 1} of ${cardCount}`}</h6>
         </div>
         <h4>{`${currentCollection.title} Collection`}</h4>
-        <i className="fas fa-chevron-circle-left"></i>
-        <p>{cardsInCollection[currentCard].question}</p>
-        <i className="fas fa-chevron-circle-right"></i>
+        <div>
+          <i className="fas fa-chevron-circle-left" onClick={previousCard}></i>
+          <span>{cardsInCollection[currentCard].question}</span>
+          <i className="fas fa-chevron-circle-right" onClick={nextCard}></i>
+        </div>
       </div>
     );
   }
