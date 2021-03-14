@@ -22,7 +22,36 @@
   border: 0.3rem inset #f0d90b;
 }
 
-/* .collection-display:active {
-  border: 0.4rem inset #f0d90b;
-  
-} */
+.card-section {
+  border: 0.2rem solid #ffffff;
+  border-radius: 0.5rem;
+  height: 20rem;
+  width: 20rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.card-count-indicator {
+  text-decoration: underline;
+  margin: 3rem 2rem 1rem 2rem;
+}
+
+.collection-name {
+  color: #cfe418;
+  margin: 1rem 2rem;
+}
+
+.next-button {
+  margin: 0 0.5rem 0 0.5rem;
+  cursor: pointer;
+}
+
+.card-edit-delete-section {
+  float: right;
+}
+
+.card-edit-delete-icon {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}

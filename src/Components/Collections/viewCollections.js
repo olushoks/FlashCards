@@ -10,7 +10,7 @@ class ShowCollections extends Component {
       activeCollection: null,
       cardsInActiveCollection: null,
       cardCount: null,
-      currentCard: 1,
+      currentCard: 0,
       form: "",
     };
   }
@@ -101,16 +101,22 @@ class ShowCollections extends Component {
       // this.setState({ cardCount });
 
       return (
-        <div>
+        <div className="card-section">
+          <div className="card-edit-delete-section">
+            <i className="fas fa-edit card-edit-delete-icon"></i>
+            <i className="fas fa-trash-alt card-edit-delete-icon"></i>
+          </div>
           <div>
-            <h6>
-              FlashCard {this.state.currentCard - 1} of {this.state.cardCount}
+            <h6 className="card-count-indicator">
+              FlashCard {this.state.currentCard + 1} of {this.state.cardCount}
             </h6>
           </div>
-          <h4>{this.state.activeCollection.title} Collection</h4>
+          <h4 className="collection-name">
+            {this.state.activeCollection.title} Collection
+          </h4>
           <div>
             <i
-              className="fas fa-chevron-circle-left"
+              className="fas fa-chevron-circle-left next-button"
               onClick={this.previousCard}
             ></i>
             <span>
@@ -120,7 +126,7 @@ class ShowCollections extends Component {
               }
             </span>
             <i
-              className="fas fa-chevron-circle-right"
+              className="fas fa-chevron-circle-right next-button"
               onClick={this.nextCard}
             ></i>
           </div>
@@ -133,7 +139,7 @@ class ShowCollections extends Component {
   previousCard = () => {
     let { currentCard, cardCount } = this.state;
     currentCard--;
-    this.setState({ currentCard: currentCard++ });
+    this.setState({ currentCard: currentCard });
     console.log(`Go to Next: ${currentCard}`);
     if (currentCard === 1) {
       this.setState({ currentCard: cardCount });
@@ -144,7 +150,7 @@ class ShowCollections extends Component {
   nextCard = () => {
     let { currentCard, cardCount } = this.state;
     currentCard++;
-    this.setState({ currentCard: currentCard++ });
+    this.setState({ currentCard: currentCard });
 
     console.log(`Go to Next: ${currentCard}`);
 
