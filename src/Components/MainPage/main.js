@@ -81,7 +81,7 @@ class MainPage extends Component {
     } else if (this.state.view === "createCollection") {
       return (
         <div className={this.state.collectionView}>
-          <AddCollection />
+          <AddCollection action="Add New Collection" />
           <i
             className="fas fa-long-arrow-alt-left back"
             onClick={this.goBackButton}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./viewCollections.css";
-//import DisplayCards from "../Cards/cards";
+import AddCollection from "./addCollection";
 
 class ShowCollections extends Component {
   constructor(props) {
@@ -9,7 +9,8 @@ class ShowCollections extends Component {
       collections: props.collections,
       activeCollection: null,
       cardsInActiveCollection: null,
-      currentCard: 0,
+      cardCount: null,
+      currentCard: 1,
     };
   }
 
@@ -24,16 +25,28 @@ class ShowCollections extends Component {
       return (
         <div
           className="collection-display"
+          // onClick={() => this.getCardsInCollection(el)}
           key={index + 1}
-          onClick={() => this.getCardsInCollection(el)}
         >
-          <i className="fas fa-plus-square icon"></i>
-          <h3>{el.title}</h3>
-          <div></div>
+          <div>
+            <i
+              className="fas fa-plus-square icon"
+              onClick={this.addCardForm}
+            ></i>
+          </div>
+          <div onClick={() => this.getCardsInCollection(el)}>
+            <h3>{el.title}</h3>
+          </div>
         </div>
       );
     });
     return collection;
+  };
+
+  // ADD CARD TO COLLECTION FORM
+  addCardForm = () => {
+    // alert(`Clicked`);
+    return <AddCollection action="Add Card to Collection" />;
   };
 
   // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
@@ -41,6 +54,7 @@ class ShowCollections extends Component {
     this.setState({
       activeCollection: clickedCollection,
       cardsInActiveCollection: clickedCollection.cards,
+      cardCount: clickedCollection.cards.length,
       currentCard: 0,
     });
 
@@ -63,13 +77,14 @@ class ShowCollections extends Component {
     }
 
     if (this.state.cardsInActiveCollection.length > 0) {
-      let cardCount = this.state.cardsInActiveCollection.length;
-      //let currentCard = 0;
+      // let cardCount = this.state.cardsInActiveCollection.length;
+      // this.setState({ cardCount });
+
       return (
         <div>
           <div>
             <h6>
-              FlashCard {this.currentCard + 1} of {cardCount}
+              FlashCard {this.state.currentCard - 1} of {this.state.cardCount}
             </h6>
           </div>
           <h4>{this.state.activeCollection.title} Collection</h4>
@@ -96,101 +111,37 @@ class ShowCollections extends Component {
 
   // GO TO PREVIOUS CARD
   previousCard = () => {
-    let { currentCard } = this.state;
+    let { currentCard, cardCount } = this.state;
     currentCard--;
-    console.log(`Go to Previous: ${currentCard}`);
-    this.setState({ currentCard: currentCard-- });
+    this.setState({ currentCard: currentCard++ });
+    console.log(`Go to Next: ${currentCard}`);
+    if (currentCard === 1) {
+      this.setState({ currentCard: cardCount });
+    }
   };
 
   // GO TO NEXT CARD
   nextCard = () => {
-    let { currentCard } = this.state;
+    let { currentCard, cardCount } = this.state;
     currentCard++;
-    console.log(`Go to Next: ${currentCard}`);
     this.setState({ currentCard: currentCard++ });
+
+    console.log(`Go to Next: ${currentCard}`);
+
+    if (currentCard === cardCount) {
+      this.setState({ currentCard: 1 });
+    }
   };
 
   render() {
     return (
       <div>
         {this.displayCollections()}
-        <div>{this.showCardsInCollection()}</div>
-        {/* <DisplayCards
-          cardsInCollection={this.state.cardsInActiveCollection}
-          currentCollection={this.state.activeCollection}
-          // cardDetails={this.state.cardDetails}
-        /> */}
+        {this.showCardsInCollection()}
+        {this.addCardForm()}
       </div>
     );
   }
 }
-
-// function ShowCollection(props) {
-//   let cardsInCurrentCollection = [];
-
-//   // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
-//   const getCardsInCollection = (collection) => {
-//     cardsInCurrentCollection = [];
-//     // CHECK IF COLLECTION HAS CARDS SUBDOCUMENT
-//     if (collection.cards.length === 0) {
-//       return console.log(`There are no cards in ${collection.title}`);
-//     }
-
-//     // PUSH CARDS SUBDOCUMENT ARRAY INTO CARDSINCURRENTCOLLECTION ARRAY
-//     cardsInCurrentCollection.push(collection.cards);
-//     // DESTRUCTURE ARRAY
-//     [cardsInCurrentCollection] = cardsInCurrentCollection;
-//     console.log(cardsInCurrentCollection);
-//     console.log(cardsInCurrentCollection.length);
-
-//     // return cardsInCurrentCollection;
-//   };
-
-//   // const displayCards = () => {
-//   //   if (!cardsInCurrentCollection || cardsInCurrentCollection.length === 0) {
-//   //     return null;
-//   //   } else {
-//   //     return (
-//   //       <div>
-//   //         <DisplayCards cardsInCollection={cardsInCurrentCollection} />
-//   //       </div>
-//   //     );
-//   //   }
-//   //   // return cardsInCurrentCollection.length === 0 ? null : (
-//   //   //   <div>
-//   //   //     <DisplayCards cardsInCollection={cardsInCurrentCollection} />
-//   //   //   </div>
-//   //   // );
-//   // };
-
-//   // CHECK IF COLLECTIONS ARE IN DATABASE AND RETURN IF YES
-//   const collections = props.collections;
-//   if (collections.length === 0) {
-//     return <div>No Collection Found</div>;
-//   } else {
-//     const collection = collections.map((el, index) => {
-//       return (
-//         <div
-//           className="collection-display"
-//           key={index + 1}
-//           onClick={() => getCardsInCollection(el)}
-//         >
-//           <i className="fas fa-plus-square icon"></i>
-//           <h3>{el.title}</h3>
-//           <div></div>
-//         </div>
-//       );
-//     });
-
-//     return (
-//       <div>
-//         {collection}
-//         <div>
-//           <DisplayCards cardsInCollection={cardsInCurrentCollection} />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 export default ShowCollections;
