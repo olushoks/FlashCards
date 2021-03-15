@@ -55,3 +55,9 @@
   padding: 0 0.5rem;
   cursor: pointer;
 }
+
+.no-cards-message {
+  color: #ffffff;
+  font-style: italic;
+  font-weight: bold;
+}
