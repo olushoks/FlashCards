@@ -81,18 +81,19 @@ class ShowCollections extends Component {
             <i
               className="fas fa-edit card-edit-delete-icon"
               onClick={this.editCard}
+              typeof="button"
             ></i>
             <i
               className="fas fa-trash-alt card-edit-delete-icon"
               onClick={this.deleteCard}
             ></i>
           </div>
-          <div>
+          <div onClick={this.showAnswer}>
             <h6 className="card-count-indicator">
               FlashCard {currentCard + 1} of {cardCount}
             </h6>
           </div>
-          <h4 className="collection-name">
+          <h4 className="collection-name" onClick={this.showAnswer}>
             {activeCollection.title} Collection
           </h4>
           <div>
@@ -100,7 +101,9 @@ class ShowCollections extends Component {
               className="fas fa-chevron-circle-left next-button"
               onClick={this.previousCard}
             ></i>
-            <span>{cardsInActiveCollection[currentCard].question}</span>
+            <span onClick={this.showAnswer}>
+              {cardsInActiveCollection[currentCard].question}
+            </span>
             <i
               className="fas fa-chevron-circle-right next-button"
               onClick={this.nextCard}
@@ -109,6 +112,14 @@ class ShowCollections extends Component {
         </div>
       );
     }
+  };
+  // SHOW ANSWER TO QUESTION ON CARD
+  showAnswer = () => {
+    console.log(
+      `Show me the answer!\n${
+        this.state.cardsInActiveCollection[this.state.currentCard].answer
+      }`
+    );
   };
 
   // GO TO PREVIOUS CARD
@@ -127,11 +138,12 @@ class ShowCollections extends Component {
   // GO TO NEXT CARD
   nextCard = () => {
     let { currentCard, cardCount } = this.state;
-    if (currentCard <= cardCount - 1) {
-      currentCard++;
-      this.setState({ currentCard: currentCard });
-      console.log(`Go to Next: ${currentCard}`);
+    if (currentCard === cardCount - 1) {
+      this.setState({ currentCard: 0 });
     }
+    currentCard++;
+    this.setState({ currentCard });
+    console.log(`Go to Next: ${currentCard}`);
 
     // if (currentCard === cardCount) {
     //   this.setState({ currentCard: 1 });

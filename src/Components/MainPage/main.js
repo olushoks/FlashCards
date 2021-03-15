@@ -118,7 +118,6 @@ class MainPage extends Component {
       display: "hide",
       displayMain: "",
       collectionView: "hide",
-      // view: "",
     });
   };
 

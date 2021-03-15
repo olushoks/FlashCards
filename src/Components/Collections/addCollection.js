@@ -13,6 +13,8 @@ function AddCollection(props) {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
+      e.target.reset();
+
       await axios
         .post("http://localhost:5000/api/collections", newCollection)
         .then()
@@ -69,8 +71,8 @@ function AddCollection(props) {
 
     return (
       <div>
-        <h3>Add Card To This Collection</h3>
         <form className="add-collect" onSubmit={handleSubmit}>
+          <h3>Add Card To This Collection</h3>
           <label>Question:</label>
           <input
             className="input-form"
@@ -118,8 +120,8 @@ function AddCollection(props) {
 
     return (
       <div>
-        <h3>Edit Card</h3>
         <form className="add-collect" onSubmit={handleSubmit}>
+          <h3>Edit Card</h3>
           <label>Question:</label>
           <input
             className="input-form"
