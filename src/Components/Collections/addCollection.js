@@ -21,6 +21,7 @@ function AddCollection(props) {
     return (
       <div>
         <form className="add-collect" onSubmit={handleSubmit}>
+          <h3>Add New Collection</h3>
           <input
             className="input-form"
             name="new-collection"
@@ -68,6 +69,56 @@ function AddCollection(props) {
 
     return (
       <div>
+        <h3>Add Card To This Collection</h3>
+        <form className="add-collect" onSubmit={handleSubmit}>
+          <label>Question:</label>
+          <input
+            className="input-form"
+            placeholder="type the question here"
+            name="question"
+            onChange={handleChange}
+          ></input>
+          <label>Answer:</label>
+          <input
+            className="input-form"
+            placeholder="type the answer here"
+            name="answer"
+            onChange={handleChange}
+          ></input>
+          <input className="submit-btn" type="submit" value="Submit"></input>
+        </form>
+      </div>
+    );
+  }
+
+  // EDIT CARD SUBDOCUMENT IN CURRENT COLLECTION
+  if (props.action === "Edit Card in Collection") {
+    let editedCard = {};
+
+    const handleChange = (e) => {
+      e.preventDefault();
+      editedCard[e.target.name] = e.target.value;
+    };
+
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      e.target.reset();
+
+      await axios
+        .put(
+          `http://localhost:5000/api/collections/${props.collectionId}/cards/${props.cardId}`,
+          editedCard
+        )
+        .then((res) => {
+          const { data } = res;
+          console.log(data);
+        })
+        .catch((err) => err);
+    };
+
+    return (
+      <div>
+        <h3>Edit Card</h3>
         <form className="add-collect" onSubmit={handleSubmit}>
           <label>Question:</label>
           <input

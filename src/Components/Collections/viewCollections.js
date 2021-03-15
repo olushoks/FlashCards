@@ -41,22 +41,6 @@ class ShowCollections extends Component {
     return collection;
   };
 
-  // ADD CARD TO COLLECTION FORM
-  addCardForm = (collectionId) => {
-    console.log(collectionId);
-
-    this.setState({
-      form: (
-        <div>
-          <AddCollection
-            action="Add Card to Collection"
-            collectionId={collectionId}
-          />
-        </div>
-      ),
-    });
-  };
-
   // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
   getCardsInCollection = (clickedCollection) => {
     this.setState({
@@ -154,6 +138,43 @@ class ShowCollections extends Component {
     // }
   };
 
+  // ADD CARD TO COLLECTION FORM
+  addCardForm = (collectionId) => {
+    console.log(collectionId);
+
+    this.setState({
+      form: (
+        <div>
+          <AddCollection
+            action="Add Card to Collection"
+            collectionId={collectionId}
+          />
+        </div>
+      ),
+    });
+  };
+
+  // EDIT CARD IN COLLECTION FORM
+  editCard = () => {
+    const {
+      activeCollection,
+      cardsInActiveCollection,
+      currentCard,
+    } = this.state;
+
+    this.setState({
+      form: (
+        <div>
+          <AddCollection
+            action="Edit Card in Collection"
+            collectionId={activeCollection._id}
+            cardId={cardsInActiveCollection[currentCard]._id}
+          />
+        </div>
+      ),
+    });
+  };
+
   // DELETE CARD FROM COLLECTION
   deleteCard = async () => {
     const {
@@ -172,11 +193,6 @@ class ShowCollections extends Component {
     console.log(
       `Active Collections ID: ${activeCollection._id} || Cuurent Card's ID:${cardsInActiveCollection[currentCard]._id} `
     );
-  };
-
-  // EDIT CARD IN COLLECTION
-  editCard = () => {
-    alert(`Edit me`);
   };
 
   render() {
