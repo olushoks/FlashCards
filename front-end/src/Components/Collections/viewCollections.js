@@ -12,6 +12,8 @@ class ShowCollections extends Component {
       cardsInActiveCollection: null,
       cardCount: null,
       currentCard: 0,
+      questionOrAnswer: "question",
+      showOrHideAnswer: "Show",
       form: "",
     };
   }
@@ -73,6 +75,8 @@ class ShowCollections extends Component {
         cardCount,
         activeCollection,
         cardsInActiveCollection,
+        questionOrAnswer,
+        showOrHideAnswer,
       } = this.state;
 
       return (
@@ -88,12 +92,12 @@ class ShowCollections extends Component {
               onClick={this.deleteCard}
             ></i>
           </div>
-          <div onClick={this.showAnswer}>
+          <div>
             <h6 className="card-count-indicator">
               FlashCard {currentCard + 1} of {cardCount}
             </h6>
           </div>
-          <h4 className="collection-name" onClick={this.showAnswer}>
+          <h4 className="collection-name">
             {activeCollection.title} Collection
           </h4>
           <div>
@@ -101,30 +105,37 @@ class ShowCollections extends Component {
               className="fas fa-chevron-circle-left next-button"
               onClick={this.previousCard}
             ></i>
-            <span onClick={this.showAnswer}>
-              {cardsInActiveCollection[currentCard].question}
+            <span>
+              {cardsInActiveCollection[currentCard][questionOrAnswer]}
             </span>
             <i
               className="fas fa-chevron-circle-right next-button"
               onClick={this.nextCard}
             ></i>
+            <div className="display-answer" onClick={this.showAnswer}>
+              {showOrHideAnswer} Answer?
+            </div>
           </div>
         </div>
       );
     }
   };
+
   // SHOW ANSWER TO QUESTION ON CARD
   showAnswer = () => {
-    console.log(
-      `Show me the answer!\n${
-        this.state.cardsInActiveCollection[this.state.currentCard].answer
-      }`
-    );
+    const { questionOrAnswer } = this.state;
+    if (questionOrAnswer === "question") {
+      this.setState({ questionOrAnswer: "answer", showOrHideAnswer: "Hide" });
+    }
+
+    if (questionOrAnswer === "answer") {
+      this.setState({ questionOrAnswer: "question", showOrHideAnswer: "Show" });
+    }
   };
 
   // GO TO PREVIOUS CARD
   previousCard = () => {
-    let { currentCard, cardCount } = this.state;
+    let { currentCard } = this.state;
     if (currentCard >= 0) {
       currentCard--;
       this.setState({ currentCard: currentCard });
