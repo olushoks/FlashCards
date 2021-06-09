@@ -1,11 +1,9 @@
 import React from "react";
 
-
 function WelcomePage(props) {
   const style = `${props.display} welcome container-sm container-md container-lg container-xl`;
   return (
     <div className={style}>
-      <h2 className="welcome-text">Flash Card</h2>
       <div className="welcome-form">
         <p>Enter your name to continue</p>
         <input

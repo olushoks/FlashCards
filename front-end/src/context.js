@@ -7,7 +7,7 @@ const AppProvider = ({ children }) => {
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
-    const name = localStorage.getItem(user);
+    const name = localStorage.getItem("name");
     setUser(name);
   }, []);
 

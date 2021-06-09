@@ -19,27 +19,15 @@ WELCOME PAGE
 }
 
 @media screen and (min-width: 576px) {
-  h2 {
-    background-color: #6d0fe9;
-  }
 }
 
 @media screen and (min-width: 768px) {
-  h2 {
-    background-color: #42df2e;
-  }
 }
 
 @media screen and (min-width: 992px) {
-  h2 {
-    background-color: #e90fde;
-  }
 }
 
 @media screen and (min-width: 1200px) {
-  h2 {
-    background-color: #1b0fc2;
-  }
 }
 
 .welcome-text {
