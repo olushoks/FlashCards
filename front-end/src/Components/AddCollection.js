@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import "./addCollection.css";
 
 function AddCollection(props) {
   // ADD COLLECTION FORM

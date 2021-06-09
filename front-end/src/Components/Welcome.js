@@ -1,5 +1,5 @@
 import React from "react";
-import "./welcome.css";
+
 
 function WelcomePage(props) {
   const style = `${props.display} welcome container-sm container-md container-lg container-xl`;

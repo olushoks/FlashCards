@@ -1,7 +1,9 @@
 import React from "react";
-import MainPage from "./MainPage/main";
+import MainPage from "./Components/Main";
+import { useGlobalContext } from "./context";
 
 function App() {
+  console.log(useGlobalContext());
   return (
     <div>
       <MainPage />

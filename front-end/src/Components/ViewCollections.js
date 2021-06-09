@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./viewCollections.css";
-import AddCollection from "./addCollection";
+import AddCollection from "./AddCollection";
 
 class ShowCollections extends Component {
   constructor(props) {
@@ -179,11 +178,8 @@ class ShowCollections extends Component {
 
   // EDIT CARD IN COLLECTION FORM
   editCard = () => {
-    const {
-      activeCollection,
-      cardsInActiveCollection,
-      currentCard,
-    } = this.state;
+    const { activeCollection, cardsInActiveCollection, currentCard } =
+      this.state;
 
     this.setState({
       form: (
@@ -200,11 +196,8 @@ class ShowCollections extends Component {
 
   // DELETE CARD FROM COLLECTION
   deleteCard = async () => {
-    const {
-      activeCollection,
-      cardsInActiveCollection,
-      currentCard,
-    } = this.state;
+    const { activeCollection, cardsInActiveCollection, currentCard } =
+      this.state;
 
     await axios
       .delete(

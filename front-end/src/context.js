@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export const useGlobalContent = () => {
+export const useGlobalContext = () => {
   return useContext(AppContext);
 };
 

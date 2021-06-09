@@ -1,9 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
-import WelcomePage from "../WelcomePage/welcome";
-import "./main.css";
-import ShowCollections from "../Collections/viewCollections";
-import AddCollection from "../Collections/addCollection";
+import WelcomePage from "./Welcome";
+import ShowCollections from "./ViewCollections";
+import AddCollection from "./AddCollection";
 
 class MainPage extends Component {
   constructor(props) {
