@@ -6,6 +6,7 @@ const { cardSchema } = require("./card");
 const collectionSchema = new mongoose.Schema({
   title: { type: String, required: true, minlength: 1, maxlength: 15 },
   lastDateModifed: { type: Date, default: Date.now },
+  createdBy: { type: String },
   cards: { type: [cardSchema], default: [] },
 });
 
@@ -14,7 +15,8 @@ const Collection = mongoose.model("Collection", collectionSchema);
 
 function validateCollection(collection) {
   const schema = Joi.object({
-    title: Joi.string().required().min(1).max(15),
+    title: Joi.string().required().min(1).max(20),
+    createdBy: Joi.string(),
     lastDateModified: Joi.date().default(Date.now),
   });
   return schema.validate(collection);
