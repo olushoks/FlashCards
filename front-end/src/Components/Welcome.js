@@ -1,29 +1,34 @@
 import React from "react";
+import { useGlobalContext } from "../context";
+import { CgEnter } from "react-icons/cg";
+import { ImArrowRight } from "react-icons/im";
 
-function WelcomePage(props) {
-  const style = `${props.display} welcome container-sm container-md container-lg container-xl`;
-  return (
-    <div className={style}>
-      <div className="welcome-form">
-        <p>Enter your name to continue</p>
-        <input
-          type="text"
-          name="name"
-          autoFocus
-          onChange={props.handleChange}
-        ></input>
-        <p>{props.errorMessage}</p>
-        <button
-          className="form-btn"
-          type="submit"
-          name="name"
-          onClick={props.handleClick}
-        >
-          Continue
-        </button>
-      </div>
-    </div>
-  );
-}
+const WelcomePage = () => {
+  const { user } = useGlobalContext();
+
+  if (user) {
+    return (
+      <section>
+        <div>Welcome {user}</div>
+        <p>click to continue {<CgEnter />}</p>
+        <small>not {user}?</small>
+      </section>
+    );
+  }
+
+  if (!user) {
+    return (
+      <section>
+        <form className="welcome-form">
+          <div>
+            <p>please enter your name</p>
+            <input type="text"></input>
+            <ImArrowRight />
+          </div>
+        </form>
+      </section>
+    );
+  }
+};
 
 export default WelcomePage;
