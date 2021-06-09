@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { AppProvider } from "./context";
 import App from "./Components/app";
 import "bootstrap/dist/css/bootstrap.css";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

@@ -12,6 +12,30 @@
   /* background-color: aliceblue; */
 }
 
+@media screen and (min-width: 576px) {
+  h2 {
+    background-color: #6d0fe9;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    background-color: #42df2e;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  h2 {
+    background-color: #e90fde;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h2 {
+    background-color: #1b0fc2;
+  }
+}
+
 .welcome-text {
   font-size: 3rem;
   text-align: center;
@@ -37,8 +61,3 @@ input[type="text"] {
   color: #cfe418;
   padding: 0.4rem 1rem;
 }
-
-/* input[type="submit"] {
-  text-align: center;
-  color: green;
-} */
