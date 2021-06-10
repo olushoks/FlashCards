@@ -1,15 +1,59 @@
 /*
 ====
-WELCOME PAGE
+GLOBAL
 ====
 */
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   background-color: #092741;
 }
+
+/*
+====
+HEADER
+====
+*/
+
+.header {
+  margin-top: 50px;
+  text-align: center;
+  color: #cfe418;
+  border-bottom: 0.3rem solid #f0d90b;
+}
+@media screen and (min-width: 576px) {
+  .header {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    font-size: 3rem;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .header {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    font-size: 4rem;
+    margin-top: 20px;
+  }
+}
+
+/*
+====
+WELCOME PAGE
+====
+*/
 
 .welcome {
   width: 100vw;
@@ -62,10 +106,6 @@ ADD COLLECTION
 ====
 */
 
-* {
-  box-sizing: border-box;
-}
-
 .add-collect {
   margin-top: 5rem;
   margin-left: 5rem;
@@ -92,12 +132,6 @@ ADD COLLECTION
 VIEW COLLECTION
 ====
 */
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 .collection-display {
   width: 15rem;

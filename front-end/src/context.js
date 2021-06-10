@@ -4,6 +4,7 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [showCollection, setShowCollection] = useState(false);
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -12,7 +13,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ user, setUser }}>
+    <AppContext.Provider
+      value={{ user, setUser, showCollection, setShowCollection }}
+    >
       {children}
     </AppContext.Provider>
   );
