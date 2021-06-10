@@ -7,11 +7,15 @@ const AppProvider = ({ children }) => {
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
-    const name = localStorage.getItem("name");
+    const name = localStorage.getItem("user");
     setUser(name);
   }, []);
 
-  return <AppContext.Provider value={{ user }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={{ user, setUser }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export const useGlobalContext = () => {
