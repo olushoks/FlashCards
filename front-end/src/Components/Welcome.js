@@ -6,14 +6,19 @@ import { ImArrowRight } from "react-icons/im";
 const WelcomePage = () => {
   const { user, setUser } = useGlobalContext();
   const inputRef = useRef("");
+  const alertRef = useRef("");
 
   useEffect(() => {
     inputRef.current.focus();
+    alertRef.current.innerText = "please enter your name";
   }, []);
 
   const handleClick = () => {
     if (!inputRef.current.value) {
-      console.log(`Enter a value`);
+      alertRef.current.innerText = "field cannot be blank";
+      setTimeout(() => {
+        alertRef.current.innerText = "please enter your name";
+      }, 2000);
     }
 
     if (inputRef.current.value) {
@@ -38,7 +43,7 @@ const WelcomePage = () => {
     return (
       <section>
         <div className="welcome-form">
-          <p>please enter your name</p>
+          <p ref={alertRef}></p>
           <input type="text" ref={inputRef} />
           <button onClick={handleClick}>
             <ImArrowRight />
