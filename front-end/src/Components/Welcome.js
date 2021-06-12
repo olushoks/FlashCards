@@ -1,18 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context";
-import { CgEnter } from "react-icons/cg";
-import { ImArrowRight } from "react-icons/im";
 
 const Welcome = () => {
-  const { user, setUser, showCollection, setShowCollection } =
-    useGlobalContext();
+  const { user, setUser, setShowCollection } = useGlobalContext();
   const inputRef = useRef("");
   const alertRef = useRef("");
 
   useEffect(() => {
     if (!user) {
       inputRef.current.focus();
-      alertRef.current.innerText = "please enter your name!";
     }
   }, []);
 
@@ -33,6 +29,10 @@ const Welcome = () => {
     }
   };
 
+  const continueBtn = () => {
+    setShowCollection(true);
+  };
+
   const updateUser = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -40,22 +40,32 @@ const Welcome = () => {
 
   if (user) {
     return (
-      <section>
-        <div className="">Welcome {user}</div>
-        <p>click to continue {<CgEnter />}</p>
-        <h1 onClick={updateUser}>not {user}?</h1>
+      <section className="welcome-section">
+        <div className="welcome">
+          <p className="welcome-text">
+            welcome back {user}
+            <button className="btn enter-btn" onClick={continueBtn}>
+              go
+            </button>
+          </p>
+          <p className="alt-user" onClick={updateUser}>
+            not {user}?
+          </p>
+        </div>
       </section>
     );
   }
 
   if (!user) {
     return (
-      <section>
-        <div className="welcome-form">
-          <p ref={alertRef}></p>
+      <section className="welcome-section">
+        <div className="welcome-input">
+          <p className="welcome-alert" ref={alertRef}>
+            please enter your name!
+          </p>
           <input type="text" ref={inputRef} />
-          <button onClick={handleClick}>
-            <ImArrowRight />
+          <button className="btn enter-btn" onClick={handleClick}>
+            go
           </button>
         </div>
       </section>

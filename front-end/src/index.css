@@ -10,17 +10,26 @@ GLOBAL
   background-color: #092741;
 }
 
+.btn {
+  border: transparent;
+}
+
 /*
 ====
 HEADER
 ====
 */
-
 .header {
   margin-top: 50px;
   text-align: center;
   color: #cfe418;
   border-bottom: 0.3rem solid #f0d90b;
+}
+@media screen and (max-width: 576px) {
+  .header {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
 }
 @media screen and (min-width: 576px) {
   .header {
@@ -55,50 +64,107 @@ WELCOME PAGE
 ====
 */
 
-.welcome {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 5rem;
-  /* background-color: aliceblue; */
+.welcome-section {
+  border: 0.2rem ridge #f0d90b;
+  position: fixed;
+  height: 20rem;
+  width: 20rem;
 }
 
+@media screen and (max-width: 576px) {
+  .welcome-section {
+    top: 30%;
+    left: 20%;
+  }
+}
 @media screen and (min-width: 576px) {
+  .welcome-section {
+    top: 30%;
+    left: 20%;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .welcome-section {
+    top: 40%;
+    left: 30%;
+  }
 }
 
 @media screen and (min-width: 992px) {
+  .welcome-section {
+    top: 40%;
+    left: 35%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+  .welcome-section {
+    top: 40%;
+    left: 38%;
+  }
 }
 
-.welcome-text {
-  font-size: 3rem;
-  text-align: center;
-  color: #cfe418;
-}
-
-.welcome-form {
+.welcome-input {
   font-size: 1rem;
   text-align: center;
   color: #cfe418;
+  margin-top: 5rem;
+}
+
+.welcome-alert {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  text-align: center;
 }
 
 input[type="text"] {
+  height: 2rem;
+  display: inline;
   border: none;
-  border-bottom: solid red 0.2rem;
+  border-bottom: 0.1rem solid #f0d90b;
   padding-left: 1rem;
-  color: #ffffff;
+  color: #f0d90b;
+  /* font-size: 1rem; */
 }
 
-.form-btn {
-  border: ridge #cfe418 0.1rem;
+.enter-btn {
+  margin-left: 1rem;
+  text-align: center;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  background-color: #f0d90b;
+  border-radius: 100% 100%;
+  cursor: pointer;
+}
+
+.welcome {
+  font-size: 1rem;
   text-align: center;
   color: #cfe418;
-  padding: 0.4rem 1rem;
+  margin-top: 5rem;
 }
+
+.alt-user {
+  margin-top: 2rem;
+  font-style: italic;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #cfe418;
+  position: absolute;
+  right: 30%;
+}
+
+/* .btn-2 {
+  display: inline-block;
+  margin: 3rem 6rem;
+  cursor: pointer;
+  text-align: center;
+  color: #f0d90b;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+} */
 
 /*
 ====
@@ -240,3 +306,17 @@ p {
   padding: 0.4rem 1rem;
   margin-right: 0.2rem;
 }
+
+/* @media screen and (max-width: 576px) {
+}
+/* @media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1200px) {
+} */

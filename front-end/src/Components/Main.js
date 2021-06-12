@@ -1,16 +1,21 @@
-import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import Welcome from "./Welcome";
 import ShowCollections from "./ViewCollections";
 
 import { useGlobalContext } from "../context";
 
 const Main = () => {
-  const { user, showCollection, setShowCollection } = useGlobalContext();
+  const { user, showCollection, setShowCollection, collection } =
+    useGlobalContext();
+
   return (
     <>
       {showCollection || <Welcome />}
-      {showCollection && <p>I am Collection</p>}
+      {showCollection &&
+        collection.map((coll, index) => {
+          return <div key={index}>{coll.title}</div>;
+        })}
+      {/* {showCollection && <p>I am Collection</p>} */}
     </>
   );
 };
@@ -46,25 +51,6 @@ const Main = () => {
 //       name = name[0].toUpperCase() + name.slice(1).toLowerCase();
 //       this.setState({ name, display: "hide", displayMain: "" });
 //     }
-//   };
-
-//   // FECTCH COLLECTIONS FROM API AND STORE IN STATE VARIABLE
-//   getCollections = async () => {
-//     await axios
-//       .get("http://localhost:5000/api/collections/")
-//       .then((response) => {
-//         const { data } = response;
-//         this.setState({
-//           view: "displayCollections",
-//           collections: data,
-//           displayMain: "hide",
-//           collectionView: "",
-//         });
-//         console.log(response);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
 //   };
 
 //   // CREATE NEW COLLECTION
