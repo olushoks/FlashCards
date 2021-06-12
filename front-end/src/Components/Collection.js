@@ -5,7 +5,7 @@ const Collection = ({ title }) => {
     <div>
       <h3>{title}</h3>
       <small>created by: user</small>
-      <button>
+      <button className="btn">
         <MdLibraryAdd />
       </button>
     </div>

@@ -12,6 +12,7 @@ GLOBAL
 
 .btn {
   border: transparent;
+  cursor: pointer;
 }
 
 /*
@@ -136,7 +137,6 @@ input[type="text"] {
   font-size: 1rem;
   background-color: #f0d90b;
   border-radius: 100% 100%;
-  cursor: pointer;
 }
 
 .welcome {
@@ -156,21 +156,43 @@ input[type="text"] {
   right: 30%;
 }
 
-/* .btn-2 {
-  display: inline-block;
-  margin: 3rem 6rem;
-  cursor: pointer;
-  text-align: center;
-  color: #f0d90b;
-  padding: 0.4rem 1rem;
-  font-size: 1rem;
-} */
-
 /*
 ====
-ADD COLLECTION
+COLLECTIONS
 ====
 */
+.collection-section {
+  display: flex;
+}
+@media screen and (max-width: 576px) {
+  .collection-section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .collection-section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .collection-section {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .collection-section {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .collection-section {
+    flex-direction: row;
+  }
+}
 
 .add-collect {
   margin-top: 5rem;
@@ -195,7 +217,7 @@ ADD COLLECTION
 
 /*
 ====
-VIEW COLLECTION
+VIEW COLLECTIONS
 ====
 */
 
@@ -210,7 +232,6 @@ VIEW COLLECTION
   border: 0.2rem inset #cfe418;
   text-align: center;
   border-radius: 1rem 0.5rem;
-  cursor: pointer;
 }
 
 .collection-display:hover {
@@ -239,7 +260,6 @@ VIEW COLLECTION
 
 .next-button {
   margin: 0 0.5rem 0 0.5rem;
-  cursor: pointer;
 }
 
 .card-edit-delete-section {
@@ -248,7 +268,6 @@ VIEW COLLECTION
 
 .card-edit-delete-icon {
   padding: 0 0.5rem;
-  cursor: pointer;
 }
 
 .no-cards-message {
@@ -264,7 +283,7 @@ VIEW COLLECTION
   float: right;
   margin-top: 6rem;
   color: #cfe418;
-  cursor: pointer;
+
   position: sticky;
 }
 
@@ -281,7 +300,7 @@ MAIN
   font-size: 1.5rem;
   color: #cfe418;
   font-weight: bold;
-  cursor: pointer;
+
   margin: 2rem 0 0 5rem;
 }
 

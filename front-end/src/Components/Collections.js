@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { AiFillHome } from "react-icons/ai";
 import Collection from "./Collection";
 
 import { useGlobalContext } from "../context";
@@ -13,11 +14,17 @@ const Collections = () => {
   }
 
   return (
-    <section>
-      {collections.map((collection) => {
-        return <Collection key={collection._id} {...collection} />;
-      })}
-    </section>
+    <>
+      <div>
+        back to home
+        <AiFillHome />
+      </div>
+      <section className="collection-section">
+        {collections.map((collection) => {
+          return <Collection key={collection._id} {...collection} />;
+        })}
+      </section>
+    </>
   );
 };
 
