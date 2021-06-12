@@ -1,21 +1,16 @@
 import React, { useEffect } from "react";
 import Welcome from "./Welcome";
-import ShowCollections from "./ViewCollections";
+import Collections from "./Collections";
 
 import { useGlobalContext } from "../context";
 
 const Main = () => {
-  const { user, showCollection, setShowCollection, collection } =
-    useGlobalContext();
+  const { user, showCollection, setShowCollection } = useGlobalContext();
 
   return (
     <>
       {showCollection || <Welcome />}
-      {showCollection &&
-        collection.map((coll, index) => {
-          return <div key={index}>{coll.title}</div>;
-        })}
-      {/* {showCollection && <p>I am Collection</p>} */}
+      {showCollection && <Collections />}
     </>
   );
 };

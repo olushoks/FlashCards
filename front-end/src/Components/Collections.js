@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Collection from "./Collection";
+
+import { useGlobalContext } from "../context";
 import AddCollection from "./AddCollection";
+
+const Collections = () => {
+  const { collections } = useGlobalContext();
+
+  if (collections.length === 0) {
+    <h3>No Collection Available</h3>;
+  }
+
+  return (
+    <section>
+      {collections.map((collection) => {
+        return <Collection key={collection._id} {...collection} />;
+      })}
+    </section>
+  );
+};
 
 class ShowCollections extends Component {
   constructor(props) {
@@ -222,4 +241,4 @@ class ShowCollections extends Component {
   }
 }
 
-export default ShowCollections;
+export default Collections;
