@@ -5,7 +5,29 @@ import { GrLinkPrevious } from "react-icons/gr";
 
 const Card = () => {
   const { currentCollection, cardCount, setCardCount } = useGlobalContext();
-  console.log(currentCollection);
+
+  const checkCardCount = (num) => {
+    if (num > currentCollection.length - 1) {
+      return 0;
+    }
+    if (num < 0) {
+      return currentCollection.length - 1;
+    }
+    return num;
+  };
+
+  const previousCard = () => {
+    setCardCount((cardCount) => {
+      let currentCount = cardCount - 1;
+      return checkCardCount(currentCount);
+    });
+  };
+  const nextCard = () => {
+    setCardCount((cardCount) => {
+      let currentCount = cardCount + 1;
+      return checkCardCount(currentCount);
+    });
+  };
 
   if (!currentCollection || currentCollection.length === 0) {
     return <h2>There are noo cards in this collection</h2>;
@@ -16,14 +38,14 @@ const Card = () => {
       <article>
         <div>
           <h5>
-            {cardCount} of {currentCollection.length}
+            {cardCount + 1} of {currentCollection.length}
           </h5>
         </div>
-        <button className="btn" onClick={() => setCardCount(cardCount - 1)}>
+        <button className="btn" onClick={previousCard}>
           <GrLinkPrevious />
         </button>
-        <p>{currentCollection[0].question}</p>
-        <button className="btn" onClick={() => setCardCount(cardCount + 1)}>
+        <p>{currentCollection[cardCount].question}</p>
+        <button className="btn" onClick={nextCard}>
           <GrLinkNext />
         </button>
       </article>

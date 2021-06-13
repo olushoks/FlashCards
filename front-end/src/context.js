@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [collections, setCollection] = useState([]);
   const [currentCollection, setCurrentCollection] = useState([]);
   const [showCards, setShowCards] = useState(false);
-  let [cardCount, setCardCount] = useState(1);
+  let [cardCount, setCardCount] = useState(0);
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -24,7 +24,6 @@ const AppProvider = ({ children }) => {
       .get("http://localhost:5000/api/collections/")
       .then(({ data }) => {
         setCollection(data);
-        // console.log(response);
       })
       .catch((error) => {
         console.log(error);

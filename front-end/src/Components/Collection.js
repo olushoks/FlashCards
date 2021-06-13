@@ -8,7 +8,7 @@ const Collection = ({ title, cards }) => {
   const getCardsInCollection = () => {
     setShowCards(true);
     setCurrentCollection(cards);
-    setCardCount(1);
+    setCardCount(0);
   };
 
   return (
