@@ -1,9 +1,17 @@
 import { MdLibraryAdd } from "react-icons/md";
+import { useGlobalContext } from "../context";
 
-const Collection = ({ title }) => {
+const Collection = ({ title, cards }) => {
+  const { setCurrentCollection } = useGlobalContext();
+
+  const getCardsInCollection = () => {
+    setCurrentCollection(cards);
+    console.log(cards);
+  };
+
   return (
     <div className="collection">
-      <div onClick={() => console.log(`show cards in collection`)}>
+      <div onClick={() => getCardsInCollection(cards)}>
         <h3>{title}</h3>
         <small>created by: user</small>
       </div>
