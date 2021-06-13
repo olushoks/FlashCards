@@ -160,46 +160,6 @@ class ShowCollections extends Component {
     }
   };
 
-  // SHOW ANSWER TO QUESTION ON CARD
-  showAnswer = () => {
-    const { questionOrAnswer } = this.state;
-    if (questionOrAnswer === "question") {
-      this.setState({ questionOrAnswer: "answer", showOrHideAnswer: "Hide" });
-    }
-
-    if (questionOrAnswer === "answer") {
-      this.setState({ questionOrAnswer: "question", showOrHideAnswer: "Show" });
-    }
-  };
-
-  // GO TO PREVIOUS CARD
-  previousCard = () => {
-    let { currentCard } = this.state;
-    if (currentCard >= 0) {
-      currentCard--;
-      this.setState({ currentCard: currentCard });
-      console.log(`Go to Next: ${currentCard}`);
-    }
-    // if (currentCard === 1) {
-    //   this.setState({ currentCard: cardCount });
-    // }
-  };
-
-  // GO TO NEXT CARD
-  nextCard = () => {
-    let { currentCard, cardCount } = this.state;
-    if (currentCard === cardCount - 1) {
-      this.setState({ currentCard: 0 });
-    }
-    currentCard++;
-    this.setState({ currentCard });
-    console.log(`Go to Next: ${currentCard}`);
-
-    // if (currentCard === cardCount) {
-    //   this.setState({ currentCard: 1 });
-    // }
-  };
-
   // ADD CARD TO COLLECTION FORM
   addCardForm = (collectionId) => {
     console.log(collectionId);

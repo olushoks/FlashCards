@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useGlobalContext } from "../context";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
 
 const Card = () => {
   const { currentCollection, cardCount, setCardCount } = useGlobalContext();
+  const [questionOrAnswer, setQuestionOrAnswer] = useState("question");
+  const answerRef = useRef("");
 
   const checkCardCount = (num) => {
     if (num > currentCollection.length - 1) {
@@ -29,12 +31,21 @@ const Card = () => {
     });
   };
 
+  const hideOrShowAnswer = () => {
+    if (answerRef.current.innerText === "show answer") {
+      answerRef.current.innerText = "hide answer";
+      setQuestionOrAnswer("answer");
+    } else if (answerRef.current.innerText === "hide answer") {
+      answerRef.current.innerText = "show answer";
+      setQuestionOrAnswer("question");
+    }
+  };
+
   if (!currentCollection || currentCollection.length === 0) {
     return <h2>There are noo cards in this collection</h2>;
   }
   return (
     <>
-      <div>There are {currentCollection.length} cards in this collection</div>
       <article>
         <div>
           <h5>
@@ -44,10 +55,13 @@ const Card = () => {
         <button className="btn" onClick={previousCard}>
           <GrLinkPrevious />
         </button>
-        <p>{currentCollection[cardCount].question}</p>
+        <span>{currentCollection[cardCount][questionOrAnswer]}</span>
         <button className="btn" onClick={nextCard}>
           <GrLinkNext />
         </button>
+        <small ref={answerRef} className="btn" onClick={hideOrShowAnswer}>
+          show answer
+        </small>
       </article>
     </>
   );
