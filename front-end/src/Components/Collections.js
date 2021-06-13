@@ -40,6 +40,8 @@ const Collections = () => {
   );
 };
 
+// OLD CODE
+
 class ShowCollections extends Component {
   constructor(props) {
     super(props);

@@ -166,6 +166,10 @@ COLLECTIONS
   flex-wrap: wrap;
 }
 
+.collection {
+  cursor: pointer;
+}
+
 .collection-header {
   margin-bottom: 2rem;
 }

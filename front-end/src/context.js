@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const [collections, setCollection] = useState([]);
   const [currentCollection, setCurrentCollection] = useState([]);
   const [showCards, setShowCards] = useState(false);
+  let [cardCount, setCardCount] = useState(1);
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -42,6 +43,8 @@ const AppProvider = ({ children }) => {
         setCurrentCollection,
         showCards,
         setShowCards,
+        cardCount,
+        setCardCount,
       }}
     >
       {children}
