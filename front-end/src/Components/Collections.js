@@ -10,7 +10,13 @@ const Collections = () => {
   const { collections } = useGlobalContext();
 
   if (collections.length === 0) {
-    <h3>No Collection Available</h3>;
+    <div>
+      <div className="collection-header">
+        <h2 className="collection-title">collections</h2>
+        <button className="btn add-collection-btn">add new collection</button>
+      </div>
+      <p>there is no collection in the DB.</p>
+    </div>;
   }
 
   return (
@@ -19,11 +25,17 @@ const Collections = () => {
         back to home
         <AiFillHome />
       </div>
-      <section className="collection-section">
-        {collections.map((collection) => {
-          return <Collection key={collection._id} {...collection} />;
-        })}
-      </section>
+      <div className="collections-div">
+        <div className="collection-header">
+          <h2 className="collection-title">collections</h2>
+          <button className="btn add-collection-btn">add new collection</button>
+        </div>
+        <section className="collections-section">
+          {collections.map((collection) => {
+            return <Collection key={collection._id} {...collection} />;
+          })}
+        </section>
+      </div>
     </>
   );
 };

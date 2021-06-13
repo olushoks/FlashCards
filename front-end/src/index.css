@@ -161,36 +161,168 @@ input[type="text"] {
 COLLECTIONS
 ====
 */
-.collection-section {
+.collections-section {
   display: flex;
+  flex-wrap: wrap;
 }
+
+.collection-header {
+  margin-bottom: 2rem;
+}
+
+.collection-title {
+  color: #f0d90b;
+}
+
+.add-collection-btn {
+  color: #ffffff;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 576px) {
-  .collection-section {
+  .collections-section {
     flex-direction: column;
+    width: 30vw;
+    margin-left: 0.5rem;
+  }
+  .collection {
+    flex: 1 50px;
+    border: 0.1rem solid #ffffff;
+    margin-bottom: 1rem;
+  }
+  .collection h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+    text-align: center;
+  }
+  .collection small {
+    color: #cfe418;
+    font-style: italic;
+  }
+  .collections-div {
+    margin-left: 1rem;
+    transform: translateY(20%);
   }
 }
 
 @media screen and (min-width: 576px) {
-  .collection-section {
+  .collections-section {
     flex-direction: column;
+    width: 30vw;
+    margin-left: 0.5rem;
+  }
+  .collection {
+    flex: 1 50px;
+    border: 0.1rem solid #ffffff;
+    margin-bottom: 1rem;
+  }
+  .collection h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+    text-align: center;
+  }
+  .collection small {
+    color: #cfe418;
+    font-style: italic;
+  }
+  .collections-div {
+    margin-left: 1rem;
+    transform: translateY(20%);
+  }
+  .add-card {
+    color: #f0d90b;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .collection-section {
+  .collections-section {
     flex-direction: column;
+    width: 30vw;
+    margin-left: 1rem;
+  }
+  .collection {
+    flex: 1 50px;
+    border: 0.1rem solid #ffffff;
+    margin-bottom: 1rem;
+  }
+  .collection h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+    text-align: center;
+  }
+  .collection small {
+    color: #cfe418;
+    font-style: italic;
+  }
+  .collections-div {
+    margin-left: 3rem;
+    transform: translateY(20%);
+  }
+  .add-card {
+    color: #f0d90b;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .collection-section {
+  .collections-section {
     flex-direction: row;
+    width: 70vw;
+    margin-top: 1rem;
+  }
+  .collection {
+    flex: 1;
+    border: 0.1rem solid #ffffff;
+    margin-right: 1rem;
+  }
+  .collection h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+    text-align: center;
+  }
+  .collection small {
+    color: #cfe418;
+    font-style: italic;
+  }
+  .collections-div {
+    margin-top: 5rem;
+    transform: translateX(12%);
+  }
+  .add-card {
+    color: #f0d90b;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .collection-section {
+  .collections-section {
     flex-direction: row;
+    width: 70vw;
+    margin-top: 1rem;
+  }
+  .collection {
+    flex: 1;
+    border: 0.1rem solid #ffffff;
+    margin-right: 1rem;
+  }
+  .collection h3 {
+    color: #ffffff;
+    text-transform: uppercase;
+    padding-top: 0.2rem;
+    text-align: center;
+  }
+  .collection small {
+    color: #cfe418;
+    font-style: italic;
+  }
+  .collections-div {
+    margin-top: 5rem;
+    transform: translateX(12%);
+  }
+  .add-card {
+    color: #f0d90b;
   }
 }
 
