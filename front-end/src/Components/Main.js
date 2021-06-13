@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import Welcome from "./Welcome";
 import Collections from "./Collections";
+import Card from "./Card";
 
 import { useGlobalContext } from "../context";
 
 const Main = () => {
-  const { user, showCollection, setShowCollection } = useGlobalContext();
+  const { user, showCollection, setShowCollection, showCards } =
+    useGlobalContext();
 
   return (
     <>
       {showCollection || <Welcome />}
       {showCollection && <Collections />}
+      {showCards && <Card />}
     </>
   );
 };

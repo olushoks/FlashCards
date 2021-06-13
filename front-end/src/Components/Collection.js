@@ -2,11 +2,11 @@ import { MdLibraryAdd } from "react-icons/md";
 import { useGlobalContext } from "../context";
 
 const Collection = ({ title, cards }) => {
-  const { setCurrentCollection } = useGlobalContext();
+  const { setCurrentCollection, setShowCards } = useGlobalContext();
 
   const getCardsInCollection = () => {
+    setShowCards(true);
     setCurrentCollection(cards);
-    console.log(cards);
   };
 
   return (
