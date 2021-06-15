@@ -71,7 +71,11 @@ const Card = () => {
         <button className="btn card-toggle-btn" onClick={nextCard}>
           <GrLinkNext />
         </button>
-        <small ref={answerRef} className="btn" onClick={hideOrShowAnswer}>
+        <small
+          ref={answerRef}
+          className="btn show-hide-answer"
+          onClick={hideOrShowAnswer}
+        >
           show answer
         </small>
       </article>
