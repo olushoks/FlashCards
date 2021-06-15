@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { useGlobalContext } from "../context";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
+import { RiEdit2Fill } from "react-icons/ri";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Card = () => {
   const { currentCollection, cardCount, setCardCount } = useGlobalContext();
@@ -19,12 +21,14 @@ const Card = () => {
   };
 
   const previousCard = () => {
+    setQuestionOrAnswer("question");
     setCardCount((cardCount) => {
       let currentCount = cardCount - 1;
       return checkCardCount(currentCount);
     });
   };
   const nextCard = () => {
+    setQuestionOrAnswer("question");
     setCardCount((cardCount) => {
       let currentCount = cardCount + 1;
       return checkCardCount(currentCount);
@@ -46,17 +50,25 @@ const Card = () => {
   }
   return (
     <>
-      <article>
-        <div>
+      <article className="card">
+        <div className="card-header">
           <h5>
-            {cardCount + 1} of {currentCollection.length}
+            card {cardCount + 1} of {currentCollection.length}
           </h5>
+          <button className="btn" onClick={() => console.log(`edit`)}>
+            <RiEdit2Fill />
+          </button>
+          <button className="btn" onClick={() => console.log(`delete`)}>
+            <RiDeleteBin5Fill />
+          </button>
         </div>
-        <button className="btn" onClick={previousCard}>
+        <button className="btn card-toggle-btn" onClick={previousCard}>
           <GrLinkPrevious />
         </button>
-        <span>{currentCollection[cardCount][questionOrAnswer]}</span>
-        <button className="btn" onClick={nextCard}>
+        <div className="question-card">
+          {currentCollection[cardCount][questionOrAnswer]}
+        </div>
+        <button className="btn card-toggle-btn" onClick={nextCard}>
           <GrLinkNext />
         </button>
         <small ref={answerRef} className="btn" onClick={hideOrShowAnswer}>

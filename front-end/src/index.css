@@ -235,9 +235,9 @@ COLLECTIONS
     margin-left: 1rem;
     transform: translateY(20%);
   }
-  .add-card {
+  /* .add-card {
     color: #f0d90b;
-  }
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -265,9 +265,9 @@ COLLECTIONS
     margin-left: 3rem;
     transform: translateY(20%);
   }
-  .add-card {
+  /* .add-card {
     color: #f0d90b;
-  }
+  } */
 }
 
 @media screen and (min-width: 992px) {
@@ -295,9 +295,9 @@ COLLECTIONS
     margin-top: 5rem;
     transform: translateX(12%);
   }
-  .add-card {
+  /* .add-card {
     color: #f0d90b;
-  }
+  } */
 }
 
 @media screen and (min-width: 1200px) {
@@ -325,10 +325,106 @@ COLLECTIONS
     margin-top: 5rem;
     transform: translateX(12%);
   }
-  .add-card {
+  /* .add-card {
     color: #f0d90b;
+  } */
+}
+
+/*
+=====
+CARDS
+=====
+*/
+
+.add-card {
+  color: #f0d90b;
+}
+
+.card-header {
+  border-bottom: 0.2rem solid #f0d90b;
+  padding: 0.5rem 0.3rem;
+  margin-bottom: 5rem;
+}
+.card-toggle-btn {
+  background-color: #f0d90b;
+}
+.card-header h5 {
+  background: none;
+  display: inline-block;
+  text-align: center;
+  text-transform: initial;
+  font-size: 1.5rem;
+}
+.card-header button {
+  float: right;
+  color: #f0d90b;
+  font-size: 1.5rem;
+  margin-right: 0.3rem;
+}
+.question-card {
+  display: inline-block;
+  width: 12rem;
+  padding: 0 0.2rem;
+  margin: 0 0.2rem;
+  text-align: center;
+  color: aliceblue;
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    border: 0.1rem solid #f0d90b;
+    position: fixed;
+    left: 40%;
+    top: 30%;
+    width: 15rem;
+    height: 20rem;
   }
 }
+@media screen and (min-width: 576px) {
+  .card {
+    border: 0.1rem solid #f0d90b;
+    position: fixed;
+    left: 40%;
+    top: 35%;
+    width: 15rem;
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    border: 0.1rem solid #f0d90b;
+    position: fixed;
+    left: 45%;
+    top: 40%;
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card {
+    border: 0.1rem solid #f0d90b;
+    position: fixed;
+    left: 35%;
+    top: 45%;
+    width: 15rem;
+    height: 20rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .card {
+    border: 0.1rem solid #f0d90b;
+    position: fixed;
+    left: 35%;
+    top: 45%;
+    width: 15rem;
+    height: 20rem;
+  }
+}
+
+/*************************/
 
 .add-collect {
   margin-top: 5rem;
@@ -372,16 +468,6 @@ VIEW COLLECTIONS
 
 .collection-display:hover {
   border: 0.3rem inset #f0d90b;
-}
-
-.card-section {
-  border: 0.2rem solid #ffffff;
-  border-radius: 0.5rem;
-  height: 25rem;
-  width: 20rem;
-  padding: 1rem 2rem;
-  text-align: center;
-  color: #ffffff;
 }
 
 .card-count-indicator {
