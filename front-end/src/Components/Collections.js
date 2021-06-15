@@ -57,31 +57,6 @@ class ShowCollections extends Component {
     };
   }
 
-  // CHECK IF COLLECTIONS ARE IN DATABASE AND RETURN IF YES
-  displayCollections = () => {
-    const { collections } = this.state;
-
-    if (collections.length === 0) {
-      return <div>No Collection Found</div>;
-    }
-    const collection = collections.map((el, index) => {
-      return (
-        <div className="collection-display" key={index + 1}>
-          <div>
-            <i
-              className="fas fa-plus-square icon"
-              onClick={() => this.addCardForm(el._id)}
-            ></i>
-          </div>
-          <div onClick={() => this.getCardsInCollection(el)}>
-            <h3>{el.title}</h3>
-          </div>
-        </div>
-      );
-    });
-    return collection;
-  };
-
   // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
   getCardsInCollection = (clickedCollection) => {
     this.setState({
@@ -192,23 +167,6 @@ class ShowCollections extends Component {
         </div>
       ),
     });
-  };
-
-  // DELETE CARD FROM COLLECTION
-  deleteCard = async () => {
-    const { activeCollection, cardsInActiveCollection, currentCard } =
-      this.state;
-
-    await axios
-      .delete(
-        `http://localhost:5000/api/collections/${activeCollection._id}/cards/${cardsInActiveCollection[currentCard]._id}`
-      )
-      .then()
-      .catch((err) => err);
-
-    console.log(
-      `Active Collections ID: ${activeCollection._id} || Cuurent Card's ID:${cardsInActiveCollection[currentCard]._id} `
-    );
   };
 
   render() {

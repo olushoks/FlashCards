@@ -9,7 +9,8 @@ const AppProvider = ({ children }) => {
   const [collections, setCollection] = useState([]);
   const [currentCollection, setCurrentCollection] = useState([]);
   const [showCards, setShowCards] = useState(false);
-  let [cardCount, setCardCount] = useState(0);
+  const [collectionID, setCollectionID] = useState(null);
+  const [cardCount, setCardCount] = useState(0);
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -30,6 +31,17 @@ const AppProvider = ({ children }) => {
       });
   };
 
+  const deleteCard = async (cardID) => {
+    await axios
+      .delete(
+        `http://localhost:5000/api/collections/${collectionID}/cards/${cardID}`
+      )
+      .then(({ data }) => {
+        setCurrentCollection(data);
+      })
+      .catch((err) => err);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -44,6 +56,8 @@ const AppProvider = ({ children }) => {
         setShowCards,
         cardCount,
         setCardCount,
+        setCollectionID,
+        deleteCard,
       }}
     >
       {children}

@@ -1,14 +1,15 @@
 import { MdLibraryAdd } from "react-icons/md";
 import { useGlobalContext } from "../context";
 
-const Collection = ({ title, cards }) => {
-  const { setCurrentCollection, setShowCards, setCardCount } =
+const Collection = ({ _id, title, cards }) => {
+  const { setCurrentCollection, setShowCards, setCardCount, setCollectionID } =
     useGlobalContext();
 
   const getCardsInCollection = () => {
     setShowCards(true);
     setCurrentCollection(cards);
     setCardCount(0);
+    setCollectionID(_id);
   };
 
   return (
