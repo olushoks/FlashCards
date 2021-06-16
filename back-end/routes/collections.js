@@ -67,10 +67,13 @@ router.post("/", async (req, res) => {
 
     const collection = new Collection({
       title: req.body.title,
+      createdBy: req.body.createdBy,
     });
 
     await collection.save();
-    return res.send(collection);
+
+    const collections = await Collection.find();
+    return res.send(collections);
   } catch (error) {
     return res.status(500).send(`Internal Error: ${error}`);
   }

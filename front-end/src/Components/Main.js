@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Welcome from "./Welcome";
 import Collections from "./Collections";
 import Card from "./Card";
-import CreateNewCollection from "./CreatCollection";
+import CreateNewCollection from "./CreateCollection";
 
 import { useGlobalContext } from "../context";
 

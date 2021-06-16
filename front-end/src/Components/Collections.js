@@ -3,7 +3,6 @@ import { AiFillHome } from "react-icons/ai";
 import Collection from "./Collection";
 
 import { useGlobalContext } from "../context";
-import AddCollection from "./CreatCollection";
 
 const Collections = () => {
   const { collections, setForm } = useGlobalContext();
@@ -60,40 +59,6 @@ class ShowCollections extends Component {
       form: "",
     };
   }
-
-  // ADD CARD TO COLLECTION FORM
-  addCardForm = (collectionId) => {
-    console.log(collectionId);
-
-    this.setState({
-      form: (
-        <div>
-          <AddCollection
-            action="Add Card to Collection"
-            collectionId={collectionId}
-          />
-        </div>
-      ),
-    });
-  };
-
-  // EDIT CARD IN COLLECTION FORM
-  editCard = () => {
-    const { activeCollection, cardsInActiveCollection, currentCard } =
-      this.state;
-
-    this.setState({
-      form: (
-        <div>
-          <AddCollection
-            action="Edit Card in Collection"
-            collectionId={activeCollection._id}
-            cardId={cardsInActiveCollection[currentCard]._id}
-          />
-        </div>
-      ),
-    });
-  };
 
   render() {
     return (

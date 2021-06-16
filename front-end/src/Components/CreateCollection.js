@@ -1,14 +1,14 @@
-import axios from "axios";
 import React, { useState, useRef } from "react";
 import { useGlobalContext } from "../context";
 
 const CreateNewCollection = () => {
-  const { user, setForm } = useGlobalContext();
+  const { user, setForm, addNewCollection } = useGlobalContext();
   const [title, setTitle] = useState("");
   const errorRef = useRef("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newCollection = { title, createdBy: "jaden" };
     if (!title) {
       errorRef.current.innerText = "please enter the title";
       setTimeout(() => {
@@ -16,7 +16,7 @@ const CreateNewCollection = () => {
       }, 2000);
       return;
     }
-    console.log(`${title} posted by ${user}`);
+    addNewCollection(newCollection);
     setTitle("");
   };
 
@@ -32,6 +32,7 @@ const CreateNewCollection = () => {
           className="input"
           name="new-collection"
           placeholder="Enter Collection Title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <input className="input" value={user} readOnly />
