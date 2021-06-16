@@ -11,6 +11,7 @@ const AppProvider = ({ children }) => {
   const [showCards, setShowCards] = useState(false);
   const [collectionID, setCollectionID] = useState(null);
   const [cardCount, setCardCount] = useState(0);
+  const [form, setForm] = useState(null);
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -30,6 +31,16 @@ const AppProvider = ({ children }) => {
         console.log(error);
       });
   };
+
+  // const addNewCollection = async (e) => {
+  //   e.preventDefault();
+  //   e.target.reset();
+
+  //   await axios
+  //     .post("http://localhost:5000/api/collections", newCollection)
+  //     .then()
+  //     .catch();
+  // };
 
   const deleteCard = async (cardID) => {
     await axios
@@ -58,6 +69,8 @@ const AppProvider = ({ children }) => {
         setCardCount,
         setCollectionID,
         deleteCard,
+        form,
+        setForm,
       }}
     >
       {children}

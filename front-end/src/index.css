@@ -7,7 +7,7 @@ GLOBAL
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #092741;
+  /* background-color: #092741; */
 }
 
 .btn {
@@ -25,6 +25,8 @@ HEADER
   text-align: center;
   color: #cfe418;
   border-bottom: 0.3rem solid #f0d90b;
+  /* position: fixed;
+  z-index: 3; */
 }
 @media screen and (max-width: 576px) {
   .header {
@@ -477,18 +479,33 @@ CARDS
 }
 
 /*************************/
-
-.add-collect {
-  margin-top: 5rem;
-  margin-left: 5rem;
-  color: #cfe418;
+/*
+=====
+ADD COLLECTION
+=====
+*/
+.form-section {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(235, 226, 226, 0.5);
+  position: fixed;
+  top: 14%;
+  z-index: 1;
+}
+.form {
+  background-color: #ffffff;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  height: 50vh;
+  width: 60vw;
 }
 
-.input-form {
-  border: 0.1rem ridge #cfe418;
+.input {
   padding: 0.5rem 0 0.5rem 0.5rem;
   color: #cfe418;
-  font-style: italic;
+  display: block;
+  margin: 0.5rem 2rem;
 }
 
 .submit-btn {
@@ -497,7 +514,55 @@ CARDS
   text-align: center;
   color: #cfe418;
   padding: 0.4rem 1rem;
+  display: block;
 }
+
+/* @media screen and (max-width: 576px) {
+}
+@media screen and (min-width: 576px) {
+  .form-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(235, 226, 226, 0.5);
+    position: absolute;
+    top: 14%;
+    z-index: 1;
+  }
+  .form {
+    background-color: #ffffff;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    height: 50vh;
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1200px) {
+  .form-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(235, 226, 226, 0.5);
+    position: absolute;
+    right: 0;
+    top: 16%;
+    z-index: 1;
+  }
+  .form {
+    background-color: #ffffff;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    height: 50vh;
+    width: 60vw;
+  }
+} */
 
 /*
 ====
@@ -584,9 +649,9 @@ MAIN
   margin-top: 5rem;
 }
 
-p {
+/* p {
   color: #cfe418;
-}
+} */
 
 .collection-div {
   margin: 0 6rem;

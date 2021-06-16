@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import Welcome from "./Welcome";
 import Collections from "./Collections";
 import Card from "./Card";
+import CreateNewCollection from "./CreatCollection";
 
 import { useGlobalContext } from "../context";
 
 const Main = () => {
-  const { user, showCollection, setShowCollection, showCards } =
+  const { showCollection, setShowCollection, showCards, form } =
     useGlobalContext();
 
   return (
@@ -14,6 +15,7 @@ const Main = () => {
       {showCollection || <Welcome />}
       {showCollection && <Collections />}
       {showCards && <Card />}
+      {form === "add-collection" && <CreateNewCollection />}
     </>
   );
 };

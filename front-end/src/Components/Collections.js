@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { AiFillHome } from "react-icons/ai";
 import Collection from "./Collection";
 
 import { useGlobalContext } from "../context";
-import AddCollection from "./AddCollection";
+import AddCollection from "./CreatCollection";
 
 const Collections = () => {
-  const { collections } = useGlobalContext();
+  const { collections, setForm } = useGlobalContext();
 
   if (collections.length === 0) {
     <div>
@@ -28,7 +27,12 @@ const Collections = () => {
       <div className="collections-div">
         <div className="collection-header">
           <h2 className="collection-title">collections</h2>
-          <button className="btn add-collection-btn">add new collection</button>
+          <button
+            className="btn add-collection-btn"
+            onClick={() => setForm("add-collection")}
+          >
+            add new collection
+          </button>
         </div>
         <section className="collections-section">
           {collections.map((collection) => {
@@ -56,84 +60,6 @@ class ShowCollections extends Component {
       form: "",
     };
   }
-
-  // GET CARDS SUB DOCUMENT IN CLICKED COLLECTION
-  getCardsInCollection = (clickedCollection) => {
-    this.setState({
-      activeCollection: clickedCollection,
-      cardsInActiveCollection: clickedCollection.cards,
-      cardCount: clickedCollection.cards.length,
-      currentCard: 0,
-    });
-  };
-
-  // SHOW CARDS IN CURRENT COLLECTION
-  showCardsInCollection = () => {
-    // CARDS IS NULL WHEN COMPONENT MOUNTS, PREVENT FROM RENDERING
-    if (!this.state.cardsInActiveCollection) {
-      return null;
-    }
-
-    if (this.state.cardsInActiveCollection.length === 0) {
-      return (
-        <div className="no-cards-message">
-          There are no cards in {this.state.activeCollection.title} Collection
-        </div>
-      );
-    }
-
-    // RENDER IF THERE ARE CARDS SUBDOCUMENT(S) IN THE COLLECTION
-    if (this.state.cardsInActiveCollection.length > 0) {
-      const {
-        currentCard,
-        cardCount,
-        activeCollection,
-        cardsInActiveCollection,
-        questionOrAnswer,
-        showOrHideAnswer,
-      } = this.state;
-
-      return (
-        <div className="card-section">
-          <div className="card-edit-delete-section">
-            <i
-              className="fas fa-edit card-edit-delete-icon"
-              onClick={this.editCard}
-              typeof="button"
-            ></i>
-            <i
-              className="fas fa-trash-alt card-edit-delete-icon"
-              onClick={this.deleteCard}
-            ></i>
-          </div>
-          <div>
-            <h6 className="card-count-indicator">
-              FlashCard {currentCard + 1} of {cardCount}
-            </h6>
-          </div>
-          <h4 className="collection-name">
-            {activeCollection.title} Collection
-          </h4>
-          <div>
-            <i
-              className="fas fa-chevron-circle-left next-button"
-              onClick={this.previousCard}
-            ></i>
-            <span>
-              {cardsInActiveCollection[currentCard][questionOrAnswer]}
-            </span>
-            <i
-              className="fas fa-chevron-circle-right next-button"
-              onClick={this.nextCard}
-            ></i>
-            <div className="display-answer" onClick={this.showAnswer}>
-              {showOrHideAnswer} Answer?
-            </div>
-          </div>
-        </div>
-      );
-    }
-  };
 
   // ADD CARD TO COLLECTION FORM
   addCardForm = (collectionId) => {
