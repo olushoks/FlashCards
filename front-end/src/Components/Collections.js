@@ -43,32 +43,4 @@ const Collections = () => {
   );
 };
 
-// OLD CODE
-
-class ShowCollections extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collections: props.collections,
-      activeCollection: null,
-      cardsInActiveCollection: null,
-      cardCount: null,
-      currentCard: 0,
-      questionOrAnswer: "question",
-      showOrHideAnswer: "Show",
-      form: "",
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        {this.displayCollections()}
-        {this.showCardsInCollection()}
-        {this.state.form}
-      </div>
-    );
-  }
-}
-
 export default Collections;

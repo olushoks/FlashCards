@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useGlobalContext } from "../context";
+import { RiCloseCircleFill } from "react-icons/ri";
 
 const CreateNewCollection = () => {
   const { user, setForm, addNewCollection } = useGlobalContext();
@@ -24,7 +25,7 @@ const CreateNewCollection = () => {
     <div className="form-section">
       <form className="form">
         <div className="btn close-form" onClick={() => setForm(null)}>
-          X
+          <RiCloseCircleFill />
         </div>
         <h3>Add New Collection</h3>
         <p ref={errorRef}></p>
@@ -101,53 +102,7 @@ const CreateNewCollection = () => {
 //   );
 // }
 
-// // EDIT CARD SUBDOCUMENT IN CURRENT COLLECTION
-// if (props.action === "Edit Card in Collection") {
-//   let editedCard = {};
 
-//   const handleChange = (e) => {
-//     e.preventDefault();
-//     editedCard[e.target.name] = e.target.value;
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     e.target.reset();
-
-//     await axios
-//       .put(
-//         `http://localhost:5000/api/collections/${props.collectionId}/cards/${props.cardId}`,
-//         editedCard
-//       )
-//       .then((res) => {
-//         const { data } = res;
-//         console.log(data);
-//       })
-//       .catch((err) => err);
-//   };
-
-//   return (
-//     <div>
-//       <form className="add-collect" onSubmit={handleSubmit}>
-//         <h3>Edit Card</h3>
-//         <label>Question:</label>
-//         <input
-//           className="input-form"
-//           placeholder="type the question here"
-//           name="question"
-//           onChange={handleChange}
-//         ></input>
-//         <label>Answer:</label>
-//         <input
-//           className="input-form"
-//           placeholder="type the answer here"
-//           name="answer"
-//           onChange={handleChange}
-//         ></input>
-//         <input className="submit-btn" type="submit" value="Submit"></input>
-//       </form>
-//     </div>
-//   );
 // }
 
 export default CreateNewCollection;

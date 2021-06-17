@@ -6,7 +6,7 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const Card = () => {
-  const { currentCollection, cardCount, setCardCount, deleteCard } =
+  const { currentCollection, cardCount, setCardCount, deleteCard, setForm } =
     useGlobalContext();
   const [questionOrAnswer, setQuestionOrAnswer] = useState("question");
   const answerRef = useRef("");
@@ -47,7 +47,11 @@ const Card = () => {
   };
 
   if (!currentCollection || currentCollection.length === 0) {
-    return <h2>There are noo cards in this collection</h2>;
+    return (
+      <article className="card">
+        <h2 className="question-card">There are no cards in this collection</h2>
+      </article>
+    );
   }
   return (
     <>
@@ -56,15 +60,7 @@ const Card = () => {
           <h5>
             card {cardCount + 1} of {currentCollection.length}
           </h5>
-          <button
-            className="btn"
-            // onClick={() =>
-            //   console.log(`edit ${currentCollection[cardCount]._id}`)
-            // }
-            onClick={() =>
-              console.log(`edit ${currentCollection[cardCount]._id}`)
-            }
-          >
+          <button className="btn" onClick={() => setForm("edit-card")}>
             <RiEdit2Fill />
           </button>
           <button

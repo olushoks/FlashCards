@@ -3,6 +3,7 @@ import Welcome from "./Welcome";
 import Collections from "./Collections";
 import Card from "./Card";
 import CreateNewCollection from "./CreateCollection";
+import EditCard from "./EditCard";
 
 import { useGlobalContext } from "../context";
 
@@ -15,7 +16,8 @@ const Main = () => {
       {showCollection || <Welcome />}
       {showCollection && <Collections />}
       {showCards && <Card />}
-      {form === "add-collection" && <CreateNewCollection />}
+      {(form === "add-collection" && <CreateNewCollection />) ||
+        (form === "edit-card" && <EditCard />)}
     </>
   );
 };

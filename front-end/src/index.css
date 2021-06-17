@@ -134,7 +134,7 @@ input[type="text"] {
 .enter-btn {
   margin-left: 1rem;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
   padding: 0.4rem 1rem;
   font-size: 1rem;
   background-color: #f0d90b;
@@ -177,11 +177,13 @@ COLLECTIONS
 }
 
 .collection-title {
-  color: #f0d90b;
+  color: #1b1b18;
+  /* color: #f0d90b; */
 }
 
 .add-collection-btn {
-  color: #ffffff;
+  color: #7c0909;
+  /* color: #000000; */
   cursor: pointer;
 }
 
@@ -193,17 +195,17 @@ COLLECTIONS
   }
   .collection {
     flex: 1 50px;
-    border: 0.1rem solid #ffffff;
+    border: 0.1rem solid #3d0909;
     margin-bottom: 1rem;
   }
   .collection h3 {
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #cfe418;
+    color: #000000;
     font-style: italic;
   }
   .collections-div {
@@ -224,13 +226,13 @@ COLLECTIONS
     margin-bottom: 1rem;
   }
   .collection h3 {
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #cfe418;
+    color: #000000;
     font-style: italic;
   }
   .collections-div {
@@ -254,13 +256,13 @@ COLLECTIONS
     margin-bottom: 1rem;
   }
   .collection h3 {
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #cfe418;
+    color: #000000;
     font-style: italic;
   }
   .collections-div {
@@ -284,13 +286,13 @@ COLLECTIONS
     margin-right: 1rem;
   }
   .collection h3 {
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #cfe418;
+    color: #000000;
     font-style: italic;
   }
   .collections-div {
@@ -314,13 +316,13 @@ COLLECTIONS
     margin-right: 1rem;
   }
   .collection h3 {
-    color: #ffffff;
+    color: #000000;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #cfe418;
+    color: #000000;
     font-style: italic;
   }
   .collections-div {
@@ -339,7 +341,7 @@ CARDS
 */
 
 .add-card {
-  color: #f0d90b;
+  color: #3d0909;
 }
 .card-header {
   border-bottom: 0.2rem solid #f0d90b;
@@ -347,7 +349,7 @@ CARDS
   margin-bottom: 5rem;
 }
 .card-toggle-btn {
-  background-color: #f0d90b;
+  color: #7c0909;
 }
 .card-header h5 {
   background: none;
@@ -355,28 +357,28 @@ CARDS
   text-align: center;
   text-transform: initial;
   font-size: 1.5rem;
-  color: aliceblue;
+  color: #0d3a63;
   margin-left: 2rem;
 }
 .card-header button {
   float: right;
-  color: #f0d90b;
+  color: #20129b;
   font-size: 1.5rem;
   margin-right: 0.3rem;
 }
 .question-card {
   display: inline-block;
   text-align: center;
-  color: aliceblue;
+  color: rgb(20, 29, 37);
 }
 .show-hide-answer {
-  color: #cfe418;
+  color: #000000;
   position: absolute;
 }
 
 @media screen and (max-width: 576px) {
   .card {
-    border: 0.1rem solid #f0d90b;
+    border: 0.1rem solid #080c46;
     position: fixed;
     left: 40%;
     top: 30%;
@@ -389,7 +391,7 @@ CARDS
     margin: 0 0.2rem;
   }
   .show-hide-answer {
-    color: #cfe418;
+    color: #000000;
     top: 90%;
     left: 65%;
   }
@@ -409,7 +411,7 @@ CARDS
     margin: 0 0.2rem;
   }
   .show-hide-answer {
-    color: #cfe418;
+    color: #000000;
     top: 90%;
     left: 65%;
   }
@@ -430,7 +432,7 @@ CARDS
     margin: 0 0.2rem;
   }
   .show-hide-answer {
-    color: #cfe418;
+    color: #000000;
     top: 90%;
     left: 75%;
   }
@@ -451,7 +453,7 @@ CARDS
     margin: 2rem 0.2rem;
   }
   .show-hide-answer {
-    color: #cfe418;
+    color: #000000;
     top: 90%;
     left: 80%;
   }
@@ -472,7 +474,7 @@ CARDS
     margin: 4rem 0.2rem;
   }
   .show-hide-answer {
-    color: #cfe418;
+    color: #000000;
     top: 90%;
     left: 82%;
   }
@@ -493,7 +495,7 @@ ADD COLLECTION
   z-index: 1;
 }
 .form {
-  background-color: #ffffff;
+  background-color: #7e7373;
   position: absolute;
   top: 20%;
   left: 15%;
@@ -501,9 +503,14 @@ ADD COLLECTION
   width: 60vw;
 }
 
+.close-form {
+  font-size: 2rem;
+  color: #f0d90b;
+}
+
 .input {
   padding: 0.5rem 0 0.5rem 0.5rem;
-  color: #cfe418;
+  color: #000000;
   display: block;
   margin: 0.5rem 2rem;
 }
@@ -512,7 +519,7 @@ ADD COLLECTION
   border: ridge #cfe418 0.1rem;
   margin-left: 0.3rem;
   text-align: center;
-  color: #cfe418;
+  color: #000000;
   padding: 0.4rem 1rem;
   display: block;
 }
@@ -529,7 +536,7 @@ ADD COLLECTION
     z-index: 1;
   }
   .form {
-    background-color: #ffffff;
+    background-color: #000000;
     position: absolute;
     top: 20%;
     left: 15%;
@@ -555,7 +562,7 @@ ADD COLLECTION
     z-index: 1;
   }
   .form {
-    background-color: #ffffff;
+    background-color: #000000;
     position: absolute;
     top: 20%;
     left: 15%;
@@ -577,7 +584,7 @@ VIEW COLLECTIONS
   margin: 0 1rem 0 1rem;
   margin-top: 5rem;
   margin-bottom: 1rem;
-  color: #cfe418;
+  color: #000000;
   border: 0.2rem inset #cfe418;
   text-align: center;
   border-radius: 1rem 0.5rem;
@@ -593,7 +600,7 @@ VIEW COLLECTIONS
 }
 
 .collection-name {
-  color: #cfe418;
+  color: #000000;
   margin: 1rem 2rem;
 }
 
@@ -610,7 +617,7 @@ VIEW COLLECTIONS
 }
 
 .no-cards-message {
-  color: #ffffff;
+  color: #000000;
   font-style: italic;
   font-weight: bold;
 }
@@ -621,7 +628,7 @@ VIEW COLLECTIONS
   font-size: 0.7rem;
   float: right;
   margin-top: 6rem;
-  color: #cfe418;
+  color: #000000;
 
   position: sticky;
 }
@@ -637,7 +644,7 @@ MAIN
 
 .back {
   font-size: 1.5rem;
-  color: #cfe418;
+  color: #000000;
   font-weight: bold;
 
   margin: 2rem 0 0 5rem;
