@@ -19,10 +19,6 @@ const Collections = () => {
 
   return (
     <>
-      <div>
-        back to home
-        <AiFillHome />
-      </div>
       <div className="collections-div">
         <div className="collection-header">
           <h2 className="collection-title">collections</h2>
