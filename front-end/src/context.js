@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
       .then(({ data }) => {
         setCollections(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response));
   };
 
   const deleteCard = async (cardID) => {
@@ -50,6 +50,24 @@ const AppProvider = ({ children }) => {
         setCurrentCollection(data);
       })
       .catch((err) => err);
+  };
+
+  const editCard = async (cardID, editedCard) => {
+    await axios
+      .put(
+        `http://localhost:5000/api/collections/${collectionID}/cards/${cardID}`,
+        editedCard
+      )
+      .then(({ data }) => {
+        setCollectionID(data._id);
+        setCurrentCollection(data.cards);
+        setCollections((collections) => {
+          return collections.map((coll) => {
+            return coll._id === collectionID ? data : coll;
+          });
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -69,6 +87,7 @@ const AppProvider = ({ children }) => {
         setCollectionID,
         deleteCard,
         addNewCollection,
+        editCard,
         form,
         setForm,
       }}

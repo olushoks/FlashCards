@@ -23,6 +23,7 @@ const Card = () => {
 
   const previousCard = () => {
     setQuestionOrAnswer("question");
+    answerRef.current.innerText = "show answer";
     setCardCount((cardCount) => {
       let currentCount = cardCount - 1;
       return checkCardCount(currentCount);
@@ -30,6 +31,7 @@ const Card = () => {
   };
   const nextCard = () => {
     setQuestionOrAnswer("question");
+    answerRef.current.innerText = "show answer";
     setCardCount((cardCount) => {
       let currentCount = cardCount + 1;
       return checkCardCount(currentCount);

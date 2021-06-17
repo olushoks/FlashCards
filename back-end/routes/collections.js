@@ -145,8 +145,9 @@ router.put("/:collectionId/cards/:cardId", async (req, res) => {
 
     // SAVE COLLECTION
     await collection.save();
-    const collections = await Collection.find();
-    return res.send(collections);
+    // const collections = await Collection.find();
+    // return res.send(collections);
+    return res.send(collection);
   } catch (error) {
     return res.status(500).send(`Internal Server Error: ${error}`);
   }

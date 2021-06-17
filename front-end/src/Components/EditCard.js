@@ -3,7 +3,8 @@ import { useGlobalContext } from "../context";
 import { RiCloseCircleFill } from "react-icons/ri";
 
 const EditCard = () => {
-  const { setForm } = useGlobalContext();
+  const { currentCollection, cardCount, setForm, editCard } =
+    useGlobalContext();
   const errorRef = useRef("");
   const [editedCard, setEditedCard] = useState({
     question: "",
@@ -25,7 +26,7 @@ const EditCard = () => {
       }, 2000);
       return;
     }
-    console.log(editedCard);
+    editCard(currentCollection[cardCount]._id, editedCard);
     setEditedCard({ question: "", answer: "" });
   };
 
@@ -60,32 +61,5 @@ const EditCard = () => {
     </div>
   );
 };
-
-// // EDIT CARD SUBDOCUMENT IN CURRENT COLLECTION
-// if (props.action === "Edit Card in Collection") {
-//   let editedCard = {};
-
-//   const handleChange = (e) => {
-//     e.preventDefault();
-//     editedCard[e.target.name] = e.target.value;
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     e.target.reset();
-
-//     await axios
-//       .put(
-//         `http://localhost:5000/api/collections/${props.collectionId}/cards/${props.cardId}`,
-//         editedCard
-//       )
-//       .then((res) => {
-//         const { data } = res;
-//         console.log(data);
-//       })
-//       .catch((err) => err);
-//   };
-
-//   );
 
 export default EditCard;
