@@ -26,6 +26,7 @@ const AddCard = () => {
       return;
     }
     //ADD NEW CARD
+    console.log(`Question:${question}\nAnswer:${answer}`);
     setNewCard({ question: "", answer: "" });
   };
 

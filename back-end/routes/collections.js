@@ -79,7 +79,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// POST REQUEST --> ADD CARD DOCUMENT TO A COLLECTION
+// POST REQUEST --> ADD EXISTING CARD DOCUMENT TO A COLLECTION
 router.post("/:collectionId/cards/:cardId", async (req, res) => {
   try {
     const collection = await Collection.findById(req.params.collectionId);
@@ -108,6 +108,39 @@ router.post("/:collectionId/cards/:cardId", async (req, res) => {
     // SAVE COLLECTION
     await collection.save();
     return res.send(collection.cards);
+  } catch (error) {
+    res.status(500).send(`Internal Server Error: ${error}`);
+  }
+});
+
+// POST REQUEST --> ADD NEW CARD DOCUMENT TO A COLLECTION
+router.post("/:collectionId/cards/add-card", async (req, res) => {
+  try {
+    const collection = await Collection.findById(req.params.collectionId);
+
+    //CHECK IF COLLECTION EXISTS
+    if (!collection)
+      return res
+        .status(400)
+        .send(
+          `"${id}" does not correspond to any existing collection. Please provide a  valid ID`
+        );
+
+    const { error } = validateCard(req.body);
+
+    if (error) return res.status(400).send(error);
+
+    const card = new Card({
+      question: req.body.question,
+      answer: req.body.answer,
+    });
+
+    // ADD CARD TO COLLECTION
+    collection.cards.push(card);
+
+    // SAVE COLLECTION
+    await collection.save();
+    return res.send(collection);
   } catch (error) {
     res.status(500).send(`Internal Server Error: ${error}`);
   }
@@ -145,8 +178,6 @@ router.put("/:collectionId/cards/:cardId", async (req, res) => {
 
     // SAVE COLLECTION
     await collection.save();
-    // const collections = await Collection.find();
-    // return res.send(collections);
     return res.send(collection);
   } catch (error) {
     return res.status(500).send(`Internal Server Error: ${error}`);
