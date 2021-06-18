@@ -1,9 +1,14 @@
 import { MdLibraryAdd } from "react-icons/md";
 import { useGlobalContext } from "../context";
 
-const Collection = ({ _id, title, cards }) => {
-  const { setCurrentCollection, setShowCards, setCardCount, setCollectionID } =
-    useGlobalContext();
+const Collection = ({ _id, title, cards, createdBy }) => {
+  const {
+    setCurrentCollection,
+    setShowCards,
+    setCardCount,
+    setCollectionID,
+    setForm,
+  } = useGlobalContext();
 
   const getCardsInCollection = () => {
     setShowCards(true);
@@ -14,13 +19,14 @@ const Collection = ({ _id, title, cards }) => {
 
   const addCard = () => {
     setCollectionID(_id);
+    setForm("add-card");
   };
 
   return (
     <div className="collection">
       <div onClick={() => getCardsInCollection(cards)}>
         <h3>{title}</h3>
-        <small>created by: user</small>
+        <small>created by: {createdBy}</small>
       </div>
       <button className="btn add-card" onClick={addCard}>
         <MdLibraryAdd />

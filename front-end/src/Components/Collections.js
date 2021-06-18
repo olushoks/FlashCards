@@ -1,11 +1,15 @@
-import React, { Component } from "react";
-import { AiFillHome } from "react-icons/ai";
+import React from "react";
 import Collection from "./Collection";
 
 import { useGlobalContext } from "../context";
 
 const Collections = () => {
-  const { collections, setForm } = useGlobalContext();
+  const { collections, setForm, setShowCards } = useGlobalContext();
+
+  const addCollection = () => {
+    setForm("add-collection");
+    setShowCards(false);
+  };
 
   if (collections.length === 0) {
     <div>
@@ -22,10 +26,7 @@ const Collections = () => {
       <div className="collections-div">
         <div className="collection-header">
           <h2 className="collection-title">collections</h2>
-          <button
-            className="btn add-collection-btn"
-            onClick={() => setForm("add-collection")}
-          >
+          <button className="btn add-collection-btn" onClick={addCollection}>
             add new collection
           </button>
         </div>

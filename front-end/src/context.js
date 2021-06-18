@@ -85,11 +85,11 @@ const AppProvider = ({ children }) => {
         cardCount,
         setCardCount,
         setCollectionID,
+        form,
+        setForm,
         deleteCard,
         addNewCollection,
         editCard,
-        form,
-        setForm,
       }}
     >
       {children}

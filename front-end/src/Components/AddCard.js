@@ -2,22 +2,21 @@ import React, { useRef, useState } from "react";
 import { useGlobalContext } from "../context";
 import { RiCloseCircleFill } from "react-icons/ri";
 
-const EditCard = () => {
-  const { currentCollection, cardCount, setForm, editCard } =
-    useGlobalContext();
+const AddCard = () => {
+  const { setForm } = useGlobalContext();
   const errorRef = useRef("");
-  const [editedCard, setEditedCard] = useState({
+  const [newCard, setNewCard] = useState({
     question: "",
     answer: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEditedCard({ ...editedCard, [name]: value });
+    setNewCard({ ...newCard, [name]: value });
   };
 
   const handleSubmit = (e) => {
-    const { question, answer } = editedCard;
+    const { question, answer } = newCard;
     e.preventDefault();
     if (!question || !answer) {
       errorRef.current.innerText = "you cannot submit an empty value";
@@ -26,8 +25,8 @@ const EditCard = () => {
       }, 2000);
       return;
     }
-    editCard(currentCollection[cardCount]._id, editedCard);
-    setEditedCard({ question: "", answer: "" });
+    //ADD NEW CARD
+    setNewCard({ question: "", answer: "" });
   };
 
   return (
@@ -36,7 +35,7 @@ const EditCard = () => {
         <div className="btn close-form" onClick={() => setForm(null)}>
           <RiCloseCircleFill />
         </div>
-        <h3>Edit Card</h3>
+        <h3>Add Card</h3>
         <p ref={errorRef}></p>
         <label>Question:</label>
         <textarea
@@ -44,7 +43,7 @@ const EditCard = () => {
           rows="3"
           cols="30"
           name="question"
-          value={editedCard.question}
+          value={newCard.question}
           onChange={(e) => handleChange(e)}
         ></textarea>
         <label>Answer:</label>
@@ -53,7 +52,7 @@ const EditCard = () => {
           rows="3"
           cols="30"
           name="answer"
-          value={editedCard.answer}
+          value={newCard.answer}
           onChange={(e) => handleChange(e)}
         ></textarea>
         <button className="submit-btn" type="submit" value="Submit">
@@ -64,4 +63,4 @@ const EditCard = () => {
   );
 };
 
-export default EditCard;
+export default AddCard;
