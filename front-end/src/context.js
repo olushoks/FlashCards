@@ -73,7 +73,7 @@ const AppProvider = ({ children }) => {
   const addCard = async (newCard) => {
     await axios
       .post(
-        `http://localhost:5000/api/collections/${collectionID}/cards/add-card`,
+        `http://localhost:5000/api/collections/${collectionID}/add-card/cards`,
         newCard
       )
       .then(({ data }) => {

@@ -142,7 +142,6 @@ router.post("/:collectionId/add-card/cards", async (req, res) => {
     return res.send(collection);
   } catch (error) {
     res.status(500).send(error);
-    // res.status(500).send(`Internal Server Error: ${error.details}`);
   }
 });
 
