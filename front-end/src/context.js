@@ -70,6 +70,24 @@ const AppProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const addCard = async (newCard) => {
+    await axios
+      .post(
+        `http://localhost:5000/api/collections/${collectionID}/cards/add-card`,
+        newCard
+      )
+      .then(({ data }) => {
+        setCollectionID(data._id);
+        setCurrentCollection(data.cards);
+        setCollections((collections) => {
+          return collections.map((coll) => {
+            return coll._id === collectionID ? data : coll;
+          });
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -90,6 +108,7 @@ const AppProvider = ({ children }) => {
         deleteCard,
         addNewCollection,
         editCard,
+        addCard,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import { useGlobalContext } from "../context";
 import { RiCloseCircleFill } from "react-icons/ri";
 
 const AddCard = () => {
-  const { setForm } = useGlobalContext();
+  const { setForm, addCard } = useGlobalContext();
   const errorRef = useRef("");
   const [newCard, setNewCard] = useState({
     question: "",
@@ -25,7 +25,7 @@ const AddCard = () => {
       }, 2000);
       return;
     }
-    //ADD NEW CARD
+    addCard(newCard);
     console.log(`Question:${question}\nAnswer:${answer}`);
     setNewCard({ question: "", answer: "" });
   };
