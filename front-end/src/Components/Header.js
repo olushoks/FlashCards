@@ -1,14 +1,13 @@
-import { GiSoccerField } from "react-icons/gi";
-import { GiSoccerBall } from "react-icons/gi";
-import { GiSoccerKick } from "react-icons/gi";
+import { HiLightBulb } from "react-icons/hi";
 
 const Header = () => {
   return (
     <header className="header">
-      <GiSoccerField />
-      <GiSoccerKick />
-      <GiSoccerBall />
-      <p>soccer flash</p>
+      <div className="header-logo">
+        <HiLightBulb />
+      </div>
+      <p className="header-title">flashCards</p>
+      <small className="header-tagline">...for web devs</small>
     </header>
   );
 };

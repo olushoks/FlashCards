@@ -3,16 +3,22 @@
 GLOBAL
 ====
 */
+/* font-family: 'Berkshire Swash', cursive;
+font-family: 'Lato', sans-serif; */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* background-color: #092741; */
+  font-family: "Lato", sans-serif;
 }
 
 .btn {
   border: transparent;
   cursor: pointer;
+}
+
+.error {
+  border-left: 0.2rem solid red;
 }
 
 /*
@@ -21,43 +27,101 @@ HEADER
 ====
 */
 .header {
-  margin-top: 50px;
+  margin: 1rem 0;
   text-align: center;
-  color: #cfe418;
-  border-bottom: 0.3rem solid #f0d90b;
-  /* position: fixed;
-  z-index: 3; */
+  border-bottom: 0.1rem solid #080c46;
+}
+.header-logo {
+  color: #f0d90b;
+}
+.header-title {
+  color: #080c46;
+  font-family: "Berkshire Swash", cursive;
+}
+.header-tagline {
+  color: #f0d90b;
 }
 @media screen and (max-width: 576px) {
   .header {
     font-size: 2rem;
-    margin-top: 50px;
+  }
+  .header-logo {
+    font-size: 3rem;
+  }
+  .header-title {
+    color: #080c46;
+    font-family: "Berkshire Swash", cursive;
+  }
+  .header-tagline {
+    color: #f0d90b;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 576px) {
   .header {
     font-size: 2rem;
-    margin-top: 50px;
+  }
+  .header-logo {
+    font-size: 3rem;
+  }
+  .header-title {
+    color: #080c46;
+    font-family: "Berkshire Swash", cursive;
+  }
+  .header-tagline {
+    color: #f0d90b;
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 768px) {
   .header {
     font-size: 3rem;
-    margin-top: 50px;
+  }
+  .header-logo {
+    font-size: 3.5rem;
+  }
+  .header-title {
+    color: #080c46;
+    font-family: "Berkshire Swash", cursive;
+  }
+  .header-tagline {
+    color: #f0d90b;
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 992px) {
   .header {
-    margin-top: 50px;
+    font-size: 3.5rem;
+  }
+  .header-logo {
+    font-size: 4rem;
+  }
+  .header-title {
+    color: #080c46;
+    font-family: "Berkshire Swash", cursive;
+  }
+  .header-tagline {
+    color: #f0d90b;
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .header {
     font-size: 4rem;
-    margin-top: 20px;
+  }
+  .header-logo {
+    font-size: 4rem;
+  }
+  .header-title {
+    color: #080c46;
+    font-family: "Berkshire Swash", cursive;
+  }
+  .header-tagline {
+    color: #f0d90b;
+    font-size: 2rem;
   }
 }
 
@@ -68,7 +132,7 @@ WELCOME PAGE
 */
 
 .welcome-section {
-  border: 0.2rem ridge #f0d90b;
+  /* border: 0.2rem ridge #f0d90b; */
   position: fixed;
   height: 20rem;
   width: 20rem;
@@ -116,9 +180,10 @@ WELCOME PAGE
 }
 
 .welcome-alert {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-transform: capitalize;
   text-align: center;
+  display: inline-block;
 }
 
 input[type="text"] {
@@ -670,6 +735,7 @@ MAIN
   color: #cfe418;
   padding: 0.4rem 1rem;
   margin-right: 0.2rem;
+  color: #f0d90b;
 }
 
 /* @media screen and (max-width: 576px) {

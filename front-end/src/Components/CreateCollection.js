@@ -12,6 +12,7 @@ const CreateNewCollection = () => {
     const newCollection = { title, createdBy: "jaden" };
     if (!title) {
       errorRef.current.innerText = "please enter the title";
+      errorRef.current.classList.add("error");
       setTimeout(() => {
         errorRef.current.innerText = "";
       }, 2000);
@@ -36,7 +37,7 @@ const CreateNewCollection = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input className="input" value={user} readOnly />
+        <p>...created by: {user}</p>
         <button className="submit-btn" type="submit" onClick={handleSubmit}>
           submit
         </button>
@@ -101,7 +102,6 @@ const CreateNewCollection = () => {
 //     </div>
 //   );
 // }
-
 
 // }
 

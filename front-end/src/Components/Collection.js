@@ -18,7 +18,6 @@ const Collection = ({ _id, title, cards, createdBy }) => {
   };
 
   const addCard = () => {
-    console.log(_id);
     setCollectionID(_id);
     setForm("add-card");
   };

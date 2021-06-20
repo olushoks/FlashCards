@@ -60,7 +60,7 @@ const Card = () => {
       <article className="card">
         <div className="card-header">
           <h5>
-            card {cardCount + 1} of {currentCollection.length}
+            Card {cardCount + 1} of {currentCollection.length}
           </h5>
           <button className="btn" onClick={() => setForm("edit-card")}>
             <RiEdit2Fill />

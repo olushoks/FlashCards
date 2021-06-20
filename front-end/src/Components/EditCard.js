@@ -21,6 +21,7 @@ const EditCard = () => {
     e.preventDefault();
     if (!question || !answer) {
       errorRef.current.innerText = "you cannot submit an empty value";
+      errorRef.current.classList.add("error");
       setTimeout(() => {
         errorRef.current.innerText = "";
       }, 2000);
@@ -38,22 +39,22 @@ const EditCard = () => {
         </div>
         <h3>Edit Card</h3>
         <p ref={errorRef}></p>
-        <label>Question:</label>
         <textarea
           className="input"
           rows="3"
           cols="30"
           name="question"
           value={editedCard.question}
+          placeholder="...enter the question here"
           onChange={(e) => handleChange(e)}
         ></textarea>
-        <label>Answer:</label>
         <textarea
           className="input"
           rows="3"
           cols="30"
           name="answer"
           value={editedCard.answer}
+          placeholder="...enter the answer here"
           onChange={(e) => handleChange(e)}
         ></textarea>
         <button className="submit-btn" type="submit" value="Submit">

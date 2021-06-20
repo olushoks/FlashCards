@@ -10,13 +10,15 @@ const Welcome = () => {
     if (!user) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [user]);
 
   const handleClick = () => {
     if (!inputRef.current.value) {
-      alertRef.current.innerText = "field cannot be blank!";
+      alertRef.current.innerText = `field cannot be blank!`;
+      alertRef.current.classList.add("error");
       setTimeout(() => {
         alertRef.current.innerText = "please enter your name";
+        alertRef.current.classList.remove("error");
       }, 2000);
     }
 
@@ -59,10 +61,10 @@ const Welcome = () => {
   if (!user) {
     return (
       <section className="welcome-section">
+        <p className="welcome-alert" ref={alertRef}>
+          please enter your name!
+        </p>
         <div className="welcome-input">
-          <p className="welcome-alert" ref={alertRef}>
-            please enter your name!
-          </p>
           <input type="text" ref={inputRef} />
           <button className="btn enter-btn" onClick={handleClick}>
             go
