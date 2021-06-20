@@ -18,7 +18,11 @@ font-family: 'Lato', sans-serif; */
 }
 
 .error {
-  border-left: 0.2rem solid red;
+  border-left: 0.5rem solid red;
+  padding-left: 0.5rem;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 /*
@@ -30,6 +34,8 @@ HEADER
   margin: 1rem 0;
   text-align: center;
   border-bottom: 0.1rem solid #080c46;
+  position: static;
+  z-index: 1;
 }
 .header-logo {
   color: #f0d90b;
@@ -132,95 +138,104 @@ WELCOME PAGE
 */
 
 .welcome-section {
-  /* border: 0.2rem ridge #f0d90b; */
   position: fixed;
-  height: 20rem;
-  width: 20rem;
 }
 
 @media screen and (max-width: 576px) {
   .welcome-section {
     top: 30%;
-    left: 20%;
+    left: 30%;
   }
 }
 @media screen and (min-width: 576px) {
   .welcome-section {
     top: 30%;
-    left: 20%;
+    left: 30%;
   }
 }
 
 @media screen and (min-width: 768px) {
   .welcome-section {
     top: 40%;
-    left: 30%;
+    left: 35%;
   }
 }
 
 @media screen and (min-width: 992px) {
   .welcome-section {
     top: 40%;
-    left: 35%;
+    left: 40%;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .welcome-section {
     top: 40%;
-    left: 38%;
+    left: 45%;
   }
 }
 
-.welcome-input {
-  font-size: 1rem;
+.welcome {
+  font-size: 1.5rem;
   text-align: center;
-  color: #cfe418;
   margin-top: 5rem;
+}
+
+.welcome-text {
+  text-transform: capitalize;
 }
 
 .welcome-alert {
   font-size: 1rem;
   text-transform: capitalize;
   text-align: center;
-  display: inline-block;
+  display: block;
+}
+
+.welcome-form {
+  position: relative;
+  right: 20%;
+}
+
+input {
+  display: block;
 }
 
 input[type="text"] {
-  height: 2rem;
+  height: 2.5rem;
+  width: 20rem;
   display: inline;
-  border: none;
-  border-bottom: 0.1rem solid #f0d90b;
-  padding-left: 1rem;
-  color: #f0d90b;
-  /* font-size: 1rem; */
+  border: 0.1rem solid #080c46;
+  padding-left: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .enter-btn {
-  margin-left: 1rem;
+  display: block;
+  margin: 1rem auto;
+  margin-bottom: 5rem;
   text-align: center;
-  color: #000000;
   padding: 0.4rem 1rem;
   font-size: 1rem;
-  background-color: #f0d90b;
-  border-radius: 100% 100%;
+  width: 12rem;
+  height: 3rem;
+  text-transform: uppercase;
+  background-color: #080c46;
+  color: #ffffff;
 }
 
-.welcome {
-  font-size: 1rem;
-  text-align: center;
-  color: #cfe418;
-  margin-top: 5rem;
+.enter-btn:hover {
+  background-color: transparent;
+  color: #080c46;
+  border: 0.2rem solid #080c46;
 }
 
 .alt-user {
-  margin-top: 2rem;
-  font-style: italic;
   cursor: pointer;
   text-decoration: underline;
-  color: #cfe418;
   position: absolute;
-  right: 30%;
+  right: 35%;
+  font-size: 1rem;
 }
 
 /*
