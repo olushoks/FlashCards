@@ -150,7 +150,7 @@ WELCOME PAGE
 @media screen and (min-width: 576px) {
   .welcome-section {
     top: 30%;
-    left: 30%;
+    left: 27%;
   }
 }
 
@@ -171,7 +171,7 @@ WELCOME PAGE
 @media screen and (min-width: 1200px) {
   .welcome-section {
     top: 40%;
-    left: 45%;
+    left: 43%;
   }
 }
 
@@ -258,13 +258,22 @@ COLLECTIONS
 
 .collection-title {
   color: #1b1b18;
-  /* color: #f0d90b; */
+  font-family: "Berkshire Swash", cursive;
+  text-transform: uppercase;
 }
 
 .add-collection-btn {
-  color: #7c0909;
-  /* color: #000000; */
   cursor: pointer;
+  margin: auto;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: lowercase;
+  background-color: transparent;
+  color: #080c46;
+}
+
+.add-collection-btn:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 576px) {
@@ -274,19 +283,21 @@ COLLECTIONS
     margin-left: 0.5rem;
   }
   .collection {
-    flex: 1 50px;
+    flex: 1;
     border: 0.1rem solid #3d0909;
     margin-bottom: 1rem;
   }
   .collection h3 {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #000000;
+    color: #ffffff;
     font-style: italic;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
   }
   .collections-div {
     margin-left: 1rem;
@@ -301,27 +312,26 @@ COLLECTIONS
     margin-left: 0.5rem;
   }
   .collection {
-    flex: 1 50px;
-    border: 0.1rem solid #ffffff;
-    margin-bottom: 1rem;
+    flex: 1;
+    margin-bottom: 0.5rem;
+    background-color: #080c46;
   }
   .collection h3 {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #000000;
+    color: #ffffff;
     font-style: italic;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
   }
   .collections-div {
     margin-left: 1rem;
     transform: translateY(20%);
   }
-  /* .add-card {
-    color: #f0d90b;
-  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -331,27 +341,25 @@ COLLECTIONS
     margin-left: 1rem;
   }
   .collection {
-    flex: 1 50px;
-    border: 0.1rem solid #ffffff;
+    flex: 1;
     margin-bottom: 1rem;
   }
   .collection h3 {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #000000;
+    color: #ffffff;
     font-style: italic;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
   }
   .collections-div {
     margin-left: 3rem;
     transform: translateY(20%);
   }
-  /* .add-card {
-    color: #f0d90b;
-  } */
 }
 
 @media screen and (min-width: 992px) {
@@ -361,27 +369,26 @@ COLLECTIONS
     margin-top: 1rem;
   }
   .collection {
-    flex: 1;
-    border: 0.1rem solid #ffffff;
+    flex: 1 200px;
     margin-right: 1rem;
+    max-width: 200px;
   }
   .collection h3 {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #000000;
+    color: #ffffff;
     font-style: italic;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
   }
   .collections-div {
     margin-top: 5rem;
     transform: translateX(12%);
   }
-  /* .add-card {
-    color: #f0d90b;
-  } */
 }
 
 @media screen and (min-width: 1200px) {
@@ -391,27 +398,26 @@ COLLECTIONS
     margin-top: 1rem;
   }
   .collection {
-    flex: 1;
-    border: 0.1rem solid #ffffff;
+    flex: 1 200px;
     margin-right: 1rem;
+    max-width: 200px;
   }
   .collection h3 {
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     padding-top: 0.2rem;
     text-align: center;
   }
   .collection small {
-    color: #000000;
+    color: #ffffff;
     font-style: italic;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
   }
   .collections-div {
     margin-top: 5rem;
-    transform: translateX(12%);
+    transform: translateX(20%);
   }
-  /* .add-card {
-    color: #f0d90b;
-  } */
 }
 
 /*
@@ -421,7 +427,12 @@ CARDS
 */
 
 .add-card {
-  color: #3d0909;
+  background-color: #f0d90b;
+  display: block;
+  float: right;
+  clear: left;
+  height: inherit;
+  font-size: 1.5rem;
 }
 .card-header {
   border-bottom: 0.2rem solid #f0d90b;
