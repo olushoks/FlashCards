@@ -246,6 +246,10 @@ input[type="text"] {
 COLLECTIONS
 ====
 */
+.home-btn {
+  color: #080c46;
+  cursor: pointer;
+}
 .collections-section {
   display: flex;
   flex-wrap: wrap;
@@ -271,7 +275,8 @@ COLLECTIONS
 }
 
 .collection-active {
-  box-shadow: 2px 1px 16px #080c46, 2px 1px 16px #7e7373;
+  /* box-shadow: 2px 1px 16px #080c46, 2px 1px 16px #7e7373; */
+  box-shadow: 4px 4px 32px #9192a0, 4px 4px 32px #770e0e;
 }
 
 .add-collection-btn {
@@ -289,6 +294,10 @@ COLLECTIONS
 }
 
 @media screen and (max-width: 576px) {
+  .home-btn {
+    font-size: 1.5rem;
+    margin-left: 0.8rem;
+  }
   .collections-section {
     flex-direction: column;
     width: 30vw;
@@ -313,11 +322,15 @@ COLLECTIONS
   }
   .collections-div {
     margin-left: 1rem;
-    transform: translateY(20%);
+    transform: translateY(10%);
   }
 }
 
 @media screen and (min-width: 576px) {
+  .home-btn {
+    font-size: 1.5rem;
+    margin-left: 0.8rem;
+  }
   .collections-section {
     flex-direction: column;
     width: 30vw;
@@ -342,11 +355,15 @@ COLLECTIONS
   }
   .collections-div {
     margin-left: 1rem;
-    transform: translateY(20%);
+    transform: translateY(10%);
   }
 }
 
 @media screen and (min-width: 768px) {
+  .home-btn {
+    font-size: 1.7rem;
+    margin-left: 1rem;
+  }
   .collections-section {
     flex-direction: column;
     width: 30vw;
@@ -371,11 +388,15 @@ COLLECTIONS
   }
   .collections-div {
     margin-left: 3rem;
-    transform: translateY(20%);
+    transform: translateY(10%);
   }
 }
 
 @media screen and (min-width: 992px) {
+  .home-btn {
+    font-size: 1.9rem;
+    margin-left: 1rem;
+  }
   .collections-section {
     flex-direction: row;
     width: 70vw;
@@ -406,6 +427,10 @@ COLLECTIONS
 }
 
 @media screen and (min-width: 1200px) {
+  .home-btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
   .collections-section {
     flex-direction: row;
     width: 70vw;
@@ -545,12 +570,12 @@ CARDS
     top: 0;
   }
   .front {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.15rem solid #7e7373cc;
   }
   .back {
-    border-radius: 1rem 0.5rem;
-    border: 0.15rem solid #080c4680;
+    border-radius: 1rem 1rem;
+    border: 0.15rem solid #7e7373cc;
   }
   .question-card {
     width: 12rem;
@@ -582,12 +607,12 @@ CARDS
     top: 0;
   }
   .front {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.15rem solid #7e7373cc;
   }
   .back {
-    border-radius: 1rem 0.5rem;
-    border: 0.15rem solid #080c4680;
+    border-radius: 1rem 1rem;
+    border: 0.15rem solid #7e7373cc;
   }
   .question-card {
     width: 12rem;
@@ -620,11 +645,11 @@ CARDS
     top: 0;
   }
   .front {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #7e7373cc;
   }
   .back {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #080c4680;
   }
 
@@ -659,11 +684,11 @@ CARDS
     top: 0;
   }
   .front {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #7e7373cc;
   }
   .back {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #080c4680;
   }
   .question-card {
@@ -697,11 +722,11 @@ CARDS
     top: 0;
   }
   .front {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #7e7373cc;
   }
   .back {
-    border-radius: 1rem 0.5rem;
+    border-radius: 1rem 1rem;
     border: 0.25rem solid #080c4680;
   }
   .question-card {
@@ -731,7 +756,8 @@ ADD COLLECTION
 .form-section {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(235, 226, 226, 0.5);
+  /* background-color: rgb(235, 226, 226, 0.5); */
+  background-color: transparent;
   position: fixed;
   top: 14%;
   z-index: 1;
@@ -815,68 +841,6 @@ ADD COLLECTION
 
 /*
 ====
-VIEW COLLECTIONS
-====
-*/
-
-.collection-display {
-  width: 15rem;
-  display: inline-block;
-  padding: 5rem 3rem;
-  margin: 0 1rem 0 1rem;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
-  color: #000000;
-  border: 0.2rem inset #cfe418;
-  text-align: center;
-  border-radius: 1rem 0.5rem;
-}
-
-.collection-display:hover {
-  border: 0.3rem inset #f0d90b;
-}
-
-.card-count-indicator {
-  text-decoration: underline;
-  margin: 3rem 2rem 1rem 2rem;
-}
-
-.collection-name {
-  color: #000000;
-  margin: 1rem 2rem;
-}
-
-.next-button {
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-.card-edit-delete-section {
-  float: right;
-}
-
-.card-edit-delete-icon {
-  padding: 0 0.5rem;
-}
-
-.no-cards-message {
-  color: #000000;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.display-answer {
-  text-align: center;
-  font-style: italic;
-  font-size: 0.7rem;
-  float: right;
-  margin-top: 6rem;
-  color: #000000;
-
-  position: sticky;
-}
-
-/*
-====
 MAIN
 ====
 */
@@ -885,9 +849,9 @@ MAIN
   color: #cfe418;
 } */
 
-.collection-div {
+/* .collection-div {
   margin: 0 6rem;
-}
+} */
 
 .collection-btn {
   border: ridge #cfe418 0.1rem;

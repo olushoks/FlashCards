@@ -25,7 +25,6 @@ const AppProvider = ({ children }) => {
     await axios
       .get("http://localhost:5000/api/collections/")
       .then(({ data }) => {
-        // setCollections(data);
         const updatedColl = data.map((el) => {
           return { ...el, active: false };
         });

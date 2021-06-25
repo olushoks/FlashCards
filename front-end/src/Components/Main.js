@@ -17,12 +17,12 @@ const Main = () => {
     <>
       {showCollection && (
         <div
+          className="home-btn"
           onClick={() => {
             setShowCollection(false);
             setShowCards(false);
           }}
         >
-          back to home
           <AiFillHome />
         </div>
       )}

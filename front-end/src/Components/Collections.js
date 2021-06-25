@@ -1,5 +1,6 @@
 import React from "react";
 import Collection from "./Collection";
+import { BiListPlus } from "react-icons/bi";
 
 import { useGlobalContext } from "../context";
 
@@ -28,6 +29,7 @@ const Collections = () => {
           <h2 className="collection-title">collections</h2>
           <button className="btn add-collection-btn" onClick={addCollection}>
             add new collection
+            <BiListPlus />
           </button>
         </div>
         <section className="collections-section">
