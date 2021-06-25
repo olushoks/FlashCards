@@ -14,6 +14,7 @@ font-family: 'Lato', sans-serif; */
 
 .btn {
   border: transparent;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -231,8 +232,10 @@ input[type="text"] {
 }
 
 .alt-user {
+  color: #080c46;
   cursor: pointer;
   text-decoration: underline;
+  text-decoration-color: #080c46;
   position: absolute;
   right: 35%;
   font-size: 1rem;
@@ -250,8 +253,13 @@ COLLECTIONS
 
 .collection {
   cursor: pointer;
+  padding-bottom: 0.5rem;
+  border: 0.3rem solid #f0d90b;
 }
 
+.collection h3 {
+  padding-bottom: 0.5rem;
+}
 .collection-header {
   margin-bottom: 2rem;
 }
@@ -260,6 +268,10 @@ COLLECTIONS
   color: #1b1b18;
   font-family: "Berkshire Swash", cursive;
   text-transform: uppercase;
+}
+
+.collection-active {
+  box-shadow: 2px 1px 16px #080c46, 2px 1px 16px #7e7373;
 }
 
 .add-collection-btn {
@@ -284,8 +296,8 @@ COLLECTIONS
   }
   .collection {
     flex: 1;
-    border: 0.1rem solid #3d0909;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #080c46;
   }
   .collection h3 {
     color: #ffffff;
@@ -343,6 +355,7 @@ COLLECTIONS
   .collection {
     flex: 1;
     margin-bottom: 1rem;
+    background-color: #080c46;
   }
   .collection h3 {
     color: #ffffff;
@@ -372,6 +385,7 @@ COLLECTIONS
     flex: 1 200px;
     margin-right: 1rem;
     max-width: 200px;
+    background-color: #080c46;
   }
   .collection h3 {
     color: #ffffff;
@@ -401,6 +415,7 @@ COLLECTIONS
     flex: 1 200px;
     margin-right: 1rem;
     max-width: 200px;
+    background-color: #080c46;
   }
   .collection h3 {
     color: #ffffff;
@@ -427,20 +442,58 @@ CARDS
 */
 
 .add-card {
-  background-color: #f0d90b;
+  background-color: transparent;
+  color: #f0d90b;
   display: block;
-  float: right;
-  clear: left;
-  height: inherit;
-  font-size: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
 }
+
+.card-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.card {
+  position: absolute;
+  background-color: transparent;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #f0d90b;
+}
+
+.back {
+  border-radius: 1rem 0.5rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #cfe418;
+  transform: rotateY(180deg);
+}
+
 .card-header {
-  border-bottom: 0.2rem solid #f0d90b;
-  padding: 0.5rem 0.3rem;
+  border-bottom: 0.2rem solid #ffffff;
+  padding: 1rem 0.3rem;
   margin-bottom: 5rem;
 }
 .card-toggle-btn {
-  color: #7c0909;
+  color: #080c46;
+  font-size: 1rem;
+  font-weight: bolder;
 }
 .card-header h5 {
   background: none;
@@ -450,12 +503,16 @@ CARDS
   font-size: 1.5rem;
   color: #0d3a63;
   margin-left: 2rem;
+  font-weight: bold;
 }
 .card-header button {
   float: right;
   color: #20129b;
   font-size: 1.5rem;
   margin-right: 0.3rem;
+}
+.delete-btn {
+  color: #e71919;
 }
 .question-card {
   display: inline-block;
@@ -464,110 +521,204 @@ CARDS
 }
 .show-hide-answer {
   color: #000000;
+  display: inline-block;
   position: absolute;
+  border: 0.1rem solid #080c46;
 }
 
-@media screen and (max-width: 576px) {
-  .card {
-    border: 0.1rem solid #080c46;
-    position: fixed;
-    left: 40%;
-    top: 30%;
+.show-hide-answer:hover {
+  background-color: #080c46;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 575px) {
+  .card-container {
+    position: relative;
+    left: 45%;
+    transform: translateY(-200%);
     width: 15rem;
     height: 20rem;
+  }
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .front {
+    border-radius: 1rem 0.5rem;
+    border: 0.15rem solid #7e7373cc;
+  }
+  .back {
+    border-radius: 1rem 0.5rem;
+    border: 0.15rem solid #080c4680;
   }
   .question-card {
     width: 12rem;
     padding: 0 0.2rem;
     margin: 0 0.2rem;
+    font-size: 1.2rem;
   }
   .show-hide-answer {
-    color: #000000;
-    top: 90%;
-    left: 65%;
+    font-size: 0.8rem;
+    top: 87%;
+    left: 35%;
+    padding: 0.2rem 0.8rem;
+  }
+  .card-toggle-btn {
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 576px) {
-  .card {
-    border: 0.1rem solid #f0d90b;
-    position: fixed;
-    left: 40%;
-    top: 35%;
+  .card-container {
+    position: relative;
+    left: 45%;
+    transform: translateY(-200%);
     width: 15rem;
     height: 20rem;
+  }
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .front {
+    border-radius: 1rem 0.5rem;
+    border: 0.15rem solid #7e7373cc;
+  }
+  .back {
+    border-radius: 1rem 0.5rem;
+    border: 0.15rem solid #080c4680;
   }
   .question-card {
     width: 12rem;
     padding: 0 0.2rem;
     margin: 0 0.2rem;
+    font-size: 1.2rem;
   }
   .show-hide-answer {
-    color: #000000;
-    top: 90%;
-    left: 65%;
+    font-size: 0.8rem;
+    top: 87%;
+    left: 35%;
+    padding: 0.2rem 0.8rem;
+  }
+  .card-toggle-btn {
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .card {
-    border: 0.1rem solid #f0d90b;
-    position: fixed;
+  .card-container {
+    position: relative;
     left: 45%;
-    top: 40%;
+    transform: translateY(-212%);
     width: 20rem;
     height: 20rem;
   }
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .front {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #7e7373cc;
+  }
+  .back {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #080c4680;
+  }
+
   .question-card {
     width: 17rem;
     padding: 0 0.2rem;
     margin: 0 0.2rem;
+    font-size: 1.5rem;
   }
   .show-hide-answer {
-    color: #000000;
-    top: 90%;
-    left: 75%;
+    font-size: 1.2rem;
+    top: 85%;
+    left: 33%;
+    padding: 0.3rem 0.9rem;
+  }
+  .card-toggle-btn {
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .card {
-    border: 0.1rem solid #f0d90b;
-    position: fixed;
-    left: 28%;
-    top: 45%;
+  .card-container {
+    position: relative;
+    left: 30%;
+    transform: translateY(5%);
     width: 25rem;
     height: 25rem;
+  }
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .front {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #7e7373cc;
+  }
+  .back {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #080c4680;
   }
   .question-card {
     width: 21rem;
     padding: 0 0.2rem;
     margin: 2rem 0.2rem;
+    font-size: 1.7rem;
   }
   .show-hide-answer {
-    color: #000000;
-    top: 90%;
-    left: 80%;
+    font-size: 1.5rem;
+    top: 85%;
+    left: 33%;
+    padding: 0.4rem 1rem;
+  }
+  .card-toggle-btn {
+    font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .card {
-    border: 0.1rem solid #f0d90b;
-    position: fixed;
-    left: 28%;
-    top: 45%;
+  .card-container {
+    position: relative;
+    left: 32%;
+    transform: translateY(5%);
     width: 30rem;
     height: 30rem;
+  }
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .front {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #7e7373cc;
+  }
+  .back {
+    border-radius: 1rem 0.5rem;
+    border: 0.25rem solid #080c4680;
   }
   .question-card {
     width: 26rem;
     padding: 0 0.2rem;
     margin: 4rem 0.2rem;
+    font-size: 2rem;
   }
   .show-hide-answer {
-    color: #000000;
-    top: 90%;
-    left: 82%;
+    font-size: 1.8rem;
+    top: 85%;
+    left: 35%;
+    padding: 0.5rem 1.2rem;
+  }
+  .card-toggle-btn {
+    font-size: 1.5rem;
+    position: relative;
   }
 }
 
@@ -729,23 +880,6 @@ VIEW COLLECTIONS
 MAIN
 ====
 */
-.hide {
-  display: none;
-}
-
-.back {
-  font-size: 1.5rem;
-  color: #000000;
-  font-weight: bold;
-
-  margin: 2rem 0 0 5rem;
-}
-
-.main {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 5rem;
-}
 
 /* p {
   color: #cfe418;

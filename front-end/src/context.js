@@ -25,7 +25,11 @@ const AppProvider = ({ children }) => {
     await axios
       .get("http://localhost:5000/api/collections/")
       .then(({ data }) => {
-        setCollections(data);
+        // setCollections(data);
+        const updatedColl = data.map((el) => {
+          return { ...el, active: false };
+        });
+        setCollections(updatedColl);
       })
       .catch((error) => {
         console.log(error);
@@ -96,12 +100,14 @@ const AppProvider = ({ children }) => {
         showCollection,
         setShowCollection,
         collections,
+        setCollections,
         currentCollection,
         setCurrentCollection,
         showCards,
         setShowCards,
         cardCount,
         setCardCount,
+        collectionID,
         setCollectionID,
         form,
         setForm,
