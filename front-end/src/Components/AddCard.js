@@ -31,35 +31,44 @@ const AddCard = () => {
   };
 
   return (
-    <div className="form-section">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="form-overlay">
+      <form className="form-section" onSubmit={handleSubmit}>
         <div className="btn close-form" onClick={() => setForm(null)}>
           <RiCloseCircleFill />
         </div>
-        <h3>Add Card</h3>
-        <p ref={errorRef}></p>
-        <textarea
-          className="input"
-          rows="3"
-          cols="30"
-          name="question"
-          value={newCard.question}
-          placeholder="...enter the question here"
-          onChange={(e) => handleChange(e)}
-        ></textarea>
+        <h3 className="form-title">Add Card</h3>
+        <div className="form">
+          <p className="form-alert" ref={errorRef}></p>
+          <div className="textarea-section">
+            <textarea
+              className="text-area"
+              rows="3"
+              cols="35"
+              name="question"
+              resize="none"
+              value={newCard.question}
+              placeholder="...enter the question here"
+              onChange={(e) => handleChange(e)}
+            ></textarea>
 
-        <textarea
-          className="input"
-          rows="3"
-          cols="30"
-          name="answer"
-          value={newCard.answer}
-          placeholder="...enter the answer here"
-          onChange={(e) => handleChange(e)}
-        ></textarea>
-        <button className="submit-btn" type="submit" value="Submit">
-          submit
-        </button>
+            <textarea
+              className="text-area"
+              rows="3"
+              cols="35"
+              name="answer"
+              value={newCard.answer}
+              placeholder="...enter the answer here"
+              onChange={(e) => handleChange(e)}
+            ></textarea>
+            <button
+              className="btn submit-btn center"
+              type="submit"
+              value="Submit"
+            >
+              submit
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

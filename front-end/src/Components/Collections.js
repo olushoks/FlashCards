@@ -5,11 +5,18 @@ import { BiListPlus } from "react-icons/bi";
 import { useGlobalContext } from "../context";
 
 const Collections = () => {
-  const { collections, setForm, setShowCards } = useGlobalContext();
+  const { collections, setCollections, setForm, setShowCards } =
+    useGlobalContext();
 
   const addCollection = () => {
     setForm("add-collection");
     setShowCards(false);
+    setCollections((coll) => {
+      const updated = coll.map((el) => {
+        return { ...el, active: false };
+      });
+      return updated;
+    });
   };
 
   if (collections.length === 0) {

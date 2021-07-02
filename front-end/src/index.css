@@ -16,13 +16,14 @@ font-family: 'Lato', sans-serif; */
   border: transparent;
   background-color: transparent;
   cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 .error {
   border-left: 0.5rem solid red;
-  padding-left: 0.5rem;
+  /* padding-left: 0.5rem;
   text-align: center;
-  margin: auto;
+  margin: auto; */
   margin-bottom: 1rem;
 }
 
@@ -750,116 +751,183 @@ CARDS
 /*************************/
 /*
 =====
-ADD COLLECTION
+FORM
 =====
 */
-.form-section {
+.form-overlay {
   width: 100vw;
   height: 100vh;
-  /* background-color: rgb(235, 226, 226, 0.5); */
   background-color: transparent;
   position: fixed;
   top: 14%;
   z-index: 1;
 }
-.form {
-  background-color: #7e7373;
+.form-section {
+  background-color: #9192a0;
   position: absolute;
-  top: 20%;
-  left: 15%;
-  height: 50vh;
-  width: 60vw;
+  border-radius: 10px;
 }
 
 .close-form {
   font-size: 2rem;
   color: #f0d90b;
+  padding: 5px 0 0 5px;
+}
+
+.form-title {
+  text-align: center;
+}
+.form-alert {
+  text-align: center;
 }
 
 .input {
   padding: 0.5rem 0 0.5rem 0.5rem;
   color: #000000;
   display: block;
-  margin: 0.5rem 2rem;
+  margin-bottom: 0.3rem;
+  width: 10rem;
+}
+
+.text-area {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  color: #000000;
+  display: block;
+  margin-bottom: 0.3rem;
+  resize: none;
+  border-radius: 0.5rem;
 }
 
 .submit-btn {
-  border: ridge #cfe418 0.1rem;
-  margin-left: 0.3rem;
   text-align: center;
-  color: #000000;
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1rem;
   display: block;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1rem;
+  width: 10rem;
+  background-color: #080c46;
+  color: yellow;
 }
 
-/* @media screen and (max-width: 576px) {
+.submit-btn:hover {
+  background-color: transparent;
+  color: #080c46;
+  border: 0.1rem solid #080c46;
+}
+
+@media screen and (max-width: 576px) {
+  .form-section {
+    top: 33%;
+    left: 35%;
+    height: 50vh;
+    width: 60vw;
+    margin: 0 0.8rem;
+  }
+  .form {
+    position: relative;
+    margin: auto;
+    transform: translate(30%, 80%);
+  }
+  .textarea-section {
+    position: relative;
+    transform: translate(-12%, -50%);
+  }
+  .center {
+    position: relative;
+    left: 10%;
+  }
 }
 @media screen and (min-width: 576px) {
   .form-section {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(235, 226, 226, 0.5);
-    position: absolute;
-    top: 14%;
-    z-index: 1;
-  }
-  .form {
-    background-color: #000000;
-    position: absolute;
-    top: 20%;
-    left: 15%;
+    top: 33%;
+    left: 35%;
     height: 50vh;
     width: 60vw;
+    margin: 0 0.8rem;
+  }
+  .form {
+    position: relative;
+    margin: auto;
+    transform: translate(30%, 80%);
+  }
+  .textarea-section {
+    position: relative;
+    transform: translate(-12%, -50%);
+  }
+  .center {
+    position: relative;
+    left: 10%;
   }
 }
 
 @media screen and (min-width: 768px) {
+  .form-section {
+    top: 35%;
+    left: 40%;
+    height: 50vh;
+    width: 55vw;
+    margin: 0 0.8rem;
+  }
+  .form {
+    position: relative;
+    margin: auto;
+    transform: translate(30%, 80%);
+  }
+  .textarea-section {
+    position: relative;
+    transform: translate(-5%, -50%);
+  }
+  .center {
+    position: relative;
+    left: 8%;
+  }
 }
 
 @media screen and (min-width: 992px) {
+  .form-section {
+    height: 50vh;
+    width: 65vw;
+    margin: 0 0.8rem;
+    transform: translate(-36%, 5%);
+    background-color: #9192a0;
+  }
+  .form {
+    position: relative;
+    margin: auto;
+    transform: translate(38%, 80%);
+  }
+  .textarea-section {
+    position: relative;
+    transform: translate(-5%, -50%);
+  }
+  .center {
+    position: relative;
+    left: 5%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .form-section {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgb(235, 226, 226, 0.5);
-    position: absolute;
-    right: 0;
-    top: 16%;
-    z-index: 1;
+    height: 70vh;
+    width: 65vw;
+    margin: 0 0.8rem;
+    transform: translate(-30%, 15%);
+    background-color: #9192a0;
   }
   .form {
-    background-color: #000000;
-    position: absolute;
-    top: 20%;
-    left: 15%;
-    height: 50vh;
-    width: 60vw;
+    position: relative;
+    margin: auto;
+    transform: translate(38%, 80%);
   }
-} */
-
-/*
-====
-MAIN
-====
-*/
-
-/* p {
-  color: #cfe418;
-} */
-
-/* .collection-div {
-  margin: 0 6rem;
-} */
-
-.collection-btn {
-  border: ridge #cfe418 0.1rem;
-  text-align: center;
-  color: #cfe418;
-  padding: 0.4rem 1rem;
-  margin-right: 0.2rem;
-  color: #f0d90b;
+  .textarea-section {
+    position: relative;
+    transform: translate(-5%, -50%);
+  }
+  .center {
+    position: relative;
+    left: 5%;
+  }
 }
 
 /* @media screen and (max-width: 576px) {

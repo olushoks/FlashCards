@@ -10,19 +10,30 @@ import { AiFillHome } from "react-icons/ai";
 import { useGlobalContext } from "../context";
 
 const Main = () => {
-  const { showCollection, setShowCollection, showCards, setShowCards, form } =
-    useGlobalContext();
+  const {
+    showCollection,
+    setShowCollection,
+    setCollections,
+    showCards,
+    setShowCards,
+    form,
+  } = useGlobalContext();
+
+  const backToGHome = () => {
+    setShowCollection(false);
+    setShowCards(false);
+    setCollections((coll) => {
+      const updated = coll.map((el) => {
+        return { ...el, active: false };
+      });
+      return updated;
+    });
+  };
 
   return (
     <>
       {showCollection && (
-        <div
-          className="home-btn"
-          onClick={() => {
-            setShowCollection(false);
-            setShowCards(false);
-          }}
-        >
+        <div className="home-btn" onClick={backToGHome}>
           <AiFillHome />
         </div>
       )}
