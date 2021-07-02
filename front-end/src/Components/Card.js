@@ -65,6 +65,7 @@ const Card = () => {
       </div>
     );
   }
+
   return (
     <div className="card-container">
       <div
@@ -85,7 +86,10 @@ const Card = () => {
             </button>
             <button
               className="btn delete-btn"
-              onClick={() => deleteCard(currentCollection[cardCount]._id)}
+              onClick={() => {
+                deleteCard(currentCollection[cardCount]._id);
+                setCardCount(cardCount - 1);
+              }}
             >
               <RiDeleteBin2Line />
             </button>
