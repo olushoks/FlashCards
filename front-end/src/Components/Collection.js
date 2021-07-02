@@ -16,7 +16,6 @@ const Collection = ({ _id, title, cards, createdBy, active }) => {
     setCurrentCollection(cards);
     setCardCount(0);
     setCollectionID(_id);
-    addActiveClass();
   };
 
   const addActiveClass = () => {
@@ -37,10 +36,22 @@ const Collection = ({ _id, title, cards, createdBy, active }) => {
 
   return (
     <div className={`collection ${active && "collection-active"}`}>
-      <button className="btn add-card" onClick={addCard}>
+      <button
+        className="btn add-card"
+        onClick={() => {
+          getCardsInCollection();
+          addCard();
+          addActiveClass();
+        }}
+      >
         <AiOutlineFolderAdd />
       </button>
-      <div onClick={(e) => getCardsInCollection(e, cards)}>
+      <div
+        onClick={(e) => {
+          getCardsInCollection(e, cards);
+          addActiveClass();
+        }}
+      >
         <h3>{title}</h3>
         <small>created by: {createdBy}</small>
       </div>
