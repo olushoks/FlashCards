@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+import { handleAlert } from "./helper";
 
 const AppContext = createContext();
 
@@ -39,8 +40,11 @@ const AppProvider = ({ children }) => {
   const addNewCollection = async (newCollection) => {
     await axios
       .post("http://localhost:5000/api/collections", newCollection)
-      .then(({ data }) => {
-        setCollections(data);
+      .then((res) => {
+        setCollections(res.data);
+        if (res.status >= 200 && res.status < 300) {
+          handleAlert(setAlert, "collection succesfully created", "success");
+        }
       })
       .catch((err) => console.log(err.response));
   };
@@ -50,19 +54,21 @@ const AppProvider = ({ children }) => {
       .delete(
         `http://localhost:5000/api/collections/${collectionID}/cards/${cardID}`
       )
-      .then(({ data }) => {
-        setCardCount(0);
-        setCurrentCollection(data.cards);
-        setCollections((collections) => {
-          const updated = collections.map((collection) => {
-            if (collection._id === collectionID) {
-              return { ...data, active: true };
-            } else {
-              return { ...collection, active: false };
-            }
+      .then((res) => {
+        if (res.status >= 200 && res.status < 300) {
+          setCardCount(0);
+          setCurrentCollection(res.data.cards);
+          setCollections((collections) => {
+            const updated = collections.map((collection) => {
+              if (collection._id === collectionID) {
+                return { ...res.data, active: true };
+              } else {
+                return { ...collection, active: false };
+              }
+            });
+            return updated;
           });
-          return updated;
-        });
+        }
       })
       .catch((err) => err);
   };
@@ -73,19 +79,22 @@ const AppProvider = ({ children }) => {
         `http://localhost:5000/api/collections/${collectionID}/cards/${cardID}`,
         editedCard
       )
-      .then(({ data }) => {
-        setCollectionID(data._id);
-        setCurrentCollection(data.cards);
-        setCollections((collections) => {
-          const updated = collections.map((collection) => {
-            if (collection._id === collectionID) {
-              return { ...data, active: true };
-            } else {
-              return { ...collection, active: false };
-            }
+      .then((res) => {
+        if (res.status >= 200 && res.status < 300) {
+          setCollectionID(res.data._id);
+          setCurrentCollection(res.data.cards);
+          setCollections((collections) => {
+            const updated = collections.map((collection) => {
+              if (collection._id === collectionID) {
+                return { ...res.data, active: true };
+              } else {
+                return { ...collection, active: false };
+              }
+            });
+            return updated;
           });
-          return updated;
-        });
+          handleAlert(setAlert, "card succesfully edited", "success");
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -96,19 +105,22 @@ const AppProvider = ({ children }) => {
         `http://localhost:5000/api/collections/${collectionID}/add-card/cards`,
         newCard
       )
-      .then(({ data }) => {
-        setCollectionID(data._id);
-        setCurrentCollection(data.cards);
-        setCollections((collections) => {
-          const updated = collections.map((collection) => {
-            if (collection._id === collectionID) {
-              return { ...data, active: true };
-            } else {
-              return { ...collection, active: false };
-            }
+      .then((res) => {
+        if (res.status >= 200 && res.status < 300) {
+          setCollectionID(res.data._id);
+          setCurrentCollection(res.data.cards);
+          setCollections((collections) => {
+            const updated = collections.map((collection) => {
+              if (collection._id === collectionID) {
+                return { ...res.data, active: true };
+              } else {
+                return { ...collection, active: false };
+              }
+            });
+            return updated;
           });
-          return updated;
-        });
+          handleAlert(setAlert, "card succesfully added", "success");
+        }
       })
       .catch((err) => console.log(err));
   };

@@ -17,7 +17,6 @@ const CreateNewCollection = () => {
     } else {
       addNewCollection(newCollection);
       setTitle("");
-      handleAlert(setAlert, "collection succesfully created", "success");
     }
   };
 
