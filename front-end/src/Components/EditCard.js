@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "../context";
+import { handleAlert } from "../helper";
 import { RiCloseCircleFill } from "react-icons/ri";
 
 const EditCard = () => {
-  const { currentCollection, cardCount, setForm, editCard } =
+  const { currentCollection, cardCount, setForm, editCard, alert, setAlert } =
     useGlobalContext();
-  const errorRef = useRef("");
   const [editedCard, setEditedCard] = useState({
     question: "",
     answer: "",
@@ -20,15 +20,13 @@ const EditCard = () => {
     const { question, answer } = editedCard;
     e.preventDefault();
     if (!question || !answer) {
-      errorRef.current.innerText = "you cannot submit an empty value";
-      errorRef.current.classList.add("error");
-      setTimeout(() => {
-        errorRef.current.innerText = "";
-      }, 2000);
+      handleAlert(setAlert, "you cannot submit an empty value", "error");
       return;
+    } else {
+      editCard(currentCollection[cardCount]._id, editedCard);
+      setEditedCard({ question: "", answer: "" });
+      handleAlert(setAlert, "card succesfully edited", "success");
     }
-    editCard(currentCollection[cardCount]._id, editedCard);
-    setEditedCard({ question: "", answer: "" });
   };
 
   return (
@@ -38,8 +36,8 @@ const EditCard = () => {
           <RiCloseCircleFill />
         </div>
         <h3 className="form-title">Edit Card</h3>
+        <p className={`form-alert ${alert.type}`}>{alert.text}</p>
         <div className="form">
-          <p className="form-alert" ref={errorRef}></p>
           <div className="textarea-section">
             <textarea
               className="text-area"

@@ -20,11 +20,11 @@ font-family: 'Lato', sans-serif; */
 }
 
 .error {
-  border-left: 0.5rem solid red;
-  /* padding-left: 0.5rem;
-  text-align: center;
-  margin: auto; */
-  margin-bottom: 1rem;
+  background-color: #c70b0b;
+}
+
+.success {
+  background-color: #1f7a08;
 }
 
 /*
@@ -191,7 +191,11 @@ WELCOME PAGE
   font-size: 1rem;
   text-transform: capitalize;
   text-align: center;
-  display: block;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  border-radius: 0.2rem;
 }
 
 .welcome-form {

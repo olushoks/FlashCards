@@ -88,16 +88,6 @@ const Card = () => {
               className="btn delete-btn"
               onClick={() => {
                 deleteCard(currentCollection[cardCount]._id);
-                // setCardCount((cardCount) => {
-                //   // let currentCount = cardCount - 1;
-                //   if (cardCount === currentCollection.length - 1) {
-                //     return cardCount - 1;
-                //   }
-                //   return cardCount;
-                // });
-                // if (cardCount === currentCollection.length - 1) {
-                //   setCardCount(cardCount - 1);
-                // }
               }}
             >
               <RiDeleteBin2Line />
@@ -118,7 +108,9 @@ const Card = () => {
             className="btn show-hide-answer"
             onClick={hideOrShowAnswer}
           >
-            show answer
+            {`${
+              questionOrAnswer === "question" ? "show answer" : "hide answer"
+            }`}
           </small>
         </article>
       </div>
@@ -127,6 +119,3 @@ const Card = () => {
 };
 
 export default Card;
-
-// Is c++ same as c#?
-// Can C++ be used for Backend?

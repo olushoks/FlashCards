@@ -12,6 +12,7 @@ const AppProvider = ({ children }) => {
   const [collectionID, setCollectionID] = useState(null);
   const [cardCount, setCardCount] = useState(0);
   const [form, setForm] = useState(null);
+  const [alert, setAlert] = useState({ text: "", type: "" });
 
   // CHECK IF NAME IS STORED IN LOCAL STORAGE
   useEffect(() => {
@@ -53,9 +54,14 @@ const AppProvider = ({ children }) => {
         setCardCount(0);
         setCurrentCollection(data.cards);
         setCollections((collections) => {
-          return collections.map((coll) => {
-            return coll._id === collectionID ? data : coll;
+          const updated = collections.map((collection) => {
+            if (collection._id === collectionID) {
+              return { ...data, active: true };
+            } else {
+              return { ...collection, active: false };
+            }
           });
+          return updated;
         });
       })
       .catch((err) => err);
@@ -71,9 +77,14 @@ const AppProvider = ({ children }) => {
         setCollectionID(data._id);
         setCurrentCollection(data.cards);
         setCollections((collections) => {
-          return collections.map((coll) => {
-            return coll._id === collectionID ? data : coll;
+          const updated = collections.map((collection) => {
+            if (collection._id === collectionID) {
+              return { ...data, active: true };
+            } else {
+              return { ...collection, active: false };
+            }
           });
+          return updated;
         });
       })
       .catch((err) => console.log(err));
@@ -89,9 +100,14 @@ const AppProvider = ({ children }) => {
         setCollectionID(data._id);
         setCurrentCollection(data.cards);
         setCollections((collections) => {
-          return collections.map((coll) => {
-            return coll._id === collectionID ? data : coll;
+          const updated = collections.map((collection) => {
+            if (collection._id === collectionID) {
+              return { ...data, active: true };
+            } else {
+              return { ...collection, active: false };
+            }
           });
+          return updated;
         });
       })
       .catch((err) => console.log(err));
@@ -116,6 +132,8 @@ const AppProvider = ({ children }) => {
         setCollectionID,
         form,
         setForm,
+        alert,
+        setAlert,
         deleteCard,
         addNewCollection,
         editCard,

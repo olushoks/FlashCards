@@ -1,25 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useGlobalContext } from "../context";
+import { handleAlert } from "../helper";
 import { RiCloseCircleFill } from "react-icons/ri";
 
 const CreateNewCollection = () => {
-  const { user, setForm, addNewCollection } = useGlobalContext();
+  const { user, setForm, addNewCollection, alert, setAlert } =
+    useGlobalContext();
   const [title, setTitle] = useState("");
-  const errorRef = useRef("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCollection = { title, createdBy: "jaden" };
     if (!title) {
-      errorRef.current.innerText = "please enter the title";
-      errorRef.current.classList.add("error");
-      setTimeout(() => {
-        errorRef.current.innerText = "";
-      }, 2000);
+      handleAlert(setAlert, "please enter collection title", "error");
       return;
+    } else {
+      addNewCollection(newCollection);
+      setTitle("");
+      handleAlert(setAlert, "collection succesfully created", "success");
     }
-    addNewCollection(newCollection);
-    setTitle("");
   };
 
   return (
@@ -29,8 +28,8 @@ const CreateNewCollection = () => {
           <RiCloseCircleFill />
         </div>
         <h3 className="form-title">Add New Collection</h3>
+        <p className={`form alert ${alert.type}`}>{alert.text}</p>
         <div className="form">
-          <p className="form-alert" ref={errorRef}></p>
           <input
             className="input"
             name="new-collection"

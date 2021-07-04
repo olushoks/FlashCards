@@ -18,7 +18,6 @@ const Welcome = () => {
       alertRef.current.classList.add("error");
       setTimeout(() => {
         alertRef.current.innerText = "";
-        // alertRef.current.innerText = "please enter your name";
         alertRef.current.classList.remove("error");
       }, 3000);
     }
