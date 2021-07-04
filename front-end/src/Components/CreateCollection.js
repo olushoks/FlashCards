@@ -27,7 +27,7 @@ const CreateNewCollection = () => {
           <RiCloseCircleFill />
         </div>
         <h3 className="form-title">Add New Collection</h3>
-        <p className={`form alert ${alert.type}`}>{alert.text}</p>
+        <p className={`form-alert ${alert.type}`}>{alert.text}</p>
         <div className="form">
           <input
             className="input"

@@ -782,7 +782,14 @@ FORM
   text-align: center;
 }
 .form-alert {
+  font-size: 1rem;
+  text-transform: capitalize;
   text-align: center;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  color: #ffffff;
+  border-radius: 0.2rem;
+  margin: 1rem;
 }
 
 .input {
@@ -831,7 +838,10 @@ FORM
   .form {
     position: relative;
     margin: auto;
-    transform: translate(30%, 80%);
+    transform: translate(30%, 48%);
+  }
+  .form-alert {
+    transform: translate(0, 12%);
   }
   .textarea-section {
     position: relative;
@@ -853,7 +863,10 @@ FORM
   .form {
     position: relative;
     margin: auto;
-    transform: translate(30%, 80%);
+    transform: translate(30%, 48%);
+  }
+  .form-alert {
+    transform: translate(0, 12%);
   }
   .textarea-section {
     position: relative;
@@ -876,7 +889,10 @@ FORM
   .form {
     position: relative;
     margin: auto;
-    transform: translate(30%, 80%);
+    transform: translate(32%, 55%);
+  }
+  .form-alert {
+    transform: translate(0, 30%);
   }
   .textarea-section {
     position: relative;
@@ -899,7 +915,10 @@ FORM
   .form {
     position: relative;
     margin: auto;
-    transform: translate(38%, 80%);
+    transform: translate(38%, 55%);
+  }
+  .form-alert {
+    transform: translate(0, 30%);
   }
   .textarea-section {
     position: relative;
@@ -923,6 +942,9 @@ FORM
     position: relative;
     margin: auto;
     transform: translate(38%, 80%);
+  }
+  .form-alert {
+    transform: translate(0, 30%);
   }
   .textarea-section {
     position: relative;
