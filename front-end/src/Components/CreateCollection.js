@@ -10,7 +10,10 @@ const CreateNewCollection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newCollection = { title, createdBy: "jaden" };
+    const newCollection = {
+      title: title.trim(),
+      createdBy: user,
+    };
     if (!title) {
       handleAlert(setAlert, "please enter collection title", "error");
       return;

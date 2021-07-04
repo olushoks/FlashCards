@@ -578,14 +578,12 @@ CARDS
 
 @media screen and (max-width: 575px) {
   .card-container {
-    position: relative;
     left: 45%;
-    transform: translateY(-200%);
+    transform: translateY(-30%);
     width: 15rem;
     height: 20rem;
   }
   .card {
-    position: absolute;
     left: 0;
     top: 0;
   }
@@ -615,14 +613,12 @@ CARDS
 }
 @media screen and (min-width: 576px) {
   .card-container {
-    position: relative;
     left: 45%;
-    transform: translateY(-200%);
+    transform: translateY(-30%);
     width: 15rem;
     height: 20rem;
   }
   .card {
-    position: absolute;
     left: 0;
     top: 0;
   }
@@ -653,14 +649,12 @@ CARDS
 
 @media screen and (min-width: 768px) {
   .card-container {
-    position: relative;
     left: 45%;
-    transform: translateY(-212%);
+    transform: translateY(-30%);
     width: 20rem;
     height: 20rem;
   }
   .card {
-    position: absolute;
     left: 0;
     top: 0;
   }
@@ -692,14 +686,12 @@ CARDS
 
 @media screen and (min-width: 992px) {
   .card-container {
-    position: relative;
     left: 30%;
     transform: translateY(5%);
     width: 25rem;
     height: 25rem;
   }
   .card {
-    position: absolute;
     left: 0;
     top: 0;
   }
@@ -730,14 +722,12 @@ CARDS
 
 @media screen and (min-width: 1200px) {
   .card-container {
-    position: relative;
     left: 32%;
     transform: translateY(5%);
     width: 30rem;
     height: 30rem;
   }
   .card {
-    position: absolute;
     left: 0;
     top: 0;
   }

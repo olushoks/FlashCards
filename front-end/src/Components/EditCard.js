@@ -17,13 +17,15 @@ const EditCard = () => {
   };
 
   const handleSubmit = (e) => {
-    const { question, answer } = editedCard;
     e.preventDefault();
-    if (!question || !answer) {
+    if (!editedCard.question || !editedCard.answer) {
       handleAlert(setAlert, "you cannot submit an empty value", "error");
       return;
     } else {
-      editCard(currentCollection[cardCount]._id, editedCard);
+      editCard(currentCollection[cardCount]._id, {
+        question: editedCard.question.trim(),
+        answer: editedCard.answer.trim(),
+      });
       setEditedCard({ question: "", answer: "" });
       handleAlert(setAlert, "card succesfully edited", "success");
     }

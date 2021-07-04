@@ -5,4 +5,14 @@ const handleAlert = (context, text, type) => {
   }, 3000);
 };
 
-export { handleAlert };
+const checkCardCount = (num, current) => {
+  if (num > current.length - 1) {
+    return 0;
+  }
+  if (num < 0) {
+    return current.length - 1;
+  }
+  return num;
+};
+
+export { handleAlert, checkCardCount };

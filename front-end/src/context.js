@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-import { handleAlert } from "./helper";
+import { handleAlert, checkCardCount } from "./helper";
 
 const AppContext = createContext();
 
@@ -56,7 +56,11 @@ const AppProvider = ({ children }) => {
       )
       .then((res) => {
         if (res.status >= 200 && res.status < 300) {
-          setCardCount(0);
+          cardCount === currentCollection.length - 1 &&
+            setCardCount((cardCount) => {
+              let currentCount = cardCount - 1;
+              return checkCardCount(currentCount, currentCollection);
+            });
           setCurrentCollection(res.data.cards);
           setCollections((collections) => {
             const updated = collections.map((collection) => {

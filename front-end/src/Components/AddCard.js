@@ -16,13 +16,15 @@ const AddCard = () => {
   };
 
   const handleSubmit = (e) => {
-    const { question, answer } = newCard;
     e.preventDefault();
-    if (!question || !answer) {
+    if (!newCard.question || !newCard.answer) {
       handleAlert(setAlert, "you cannot submit empty value(s)", "error");
       return;
     } else {
-      addCard(newCard);
+      addCard({
+        question: newCard.question.trim(),
+        answer: newCard.answer.trim(),
+      });
       setNewCard({ question: "", answer: "" });
       handleAlert(setAlert, "card succesfully added", "success");
     }

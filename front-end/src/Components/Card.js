@@ -4,6 +4,7 @@ import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
 import { RiEdit2Fill } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
+import { checkCardCount } from "../helper";
 
 const Card = () => {
   const { currentCollection, cardCount, setCardCount, deleteCard, setForm } =
@@ -15,22 +16,12 @@ const Card = () => {
     setQuestionOrAnswer("question");
   }, [currentCollection]);
 
-  const checkCardCount = (num) => {
-    if (num > currentCollection.length - 1) {
-      return 0;
-    }
-    if (num < 0) {
-      return currentCollection.length - 1;
-    }
-    return num;
-  };
-
   const previousCard = () => {
     setQuestionOrAnswer("question");
     answerRef.current.innerText = "show answer";
     setCardCount((cardCount) => {
       let currentCount = cardCount - 1;
-      return checkCardCount(currentCount);
+      return checkCardCount(currentCount, currentCollection);
     });
   };
   const nextCard = () => {
@@ -38,7 +29,7 @@ const Card = () => {
     answerRef.current.innerText = "show answer";
     setCardCount((cardCount) => {
       let currentCount = cardCount + 1;
-      return checkCardCount(currentCount);
+      return checkCardCount(currentCount, currentCollection);
     });
   };
 
