@@ -206,7 +206,8 @@ router.delete("/:collectionId/cards/:cardId", async (req, res) => {
     // REMOVE CARD DOCUMENT FROM COLLECTION
     await card.remove();
     collection.save();
-    return res.send(collection.cards);
+    // return res.send(collection.cards);
+    return res.send(collection);
   } catch (error) {
     return res.status(500).send(`Internal Server Error: ${error}`);
   }

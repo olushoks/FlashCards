@@ -50,7 +50,13 @@ const AppProvider = ({ children }) => {
         `http://localhost:5000/api/collections/${collectionID}/cards/${cardID}`
       )
       .then(({ data }) => {
-        setCurrentCollection(data);
+        setCardCount(0);
+        setCurrentCollection(data.cards);
+        setCollections((collections) => {
+          return collections.map((coll) => {
+            return coll._id === collectionID ? data : coll;
+          });
+        });
       })
       .catch((err) => err);
   };
