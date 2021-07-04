@@ -57,7 +57,7 @@ const Card = () => {
       <div className="card-container">
         <div className="card">
           <article className="front">
-            <h2 className="question-card">
+            <h2 className="question-card no-card">
               There are no cards in this collection
             </h2>
           </article>

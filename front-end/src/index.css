@@ -280,22 +280,24 @@ COLLECTIONS
 }
 
 .collection-active {
-  /* box-shadow: 2px 1px 16px #080c46, 2px 1px 16px #7e7373; */
   box-shadow: 4px 4px 32px #9192a0, 4px 4px 32px #770e0e;
 }
 
 .add-collection-btn {
+  display: block;
   cursor: pointer;
-  margin: auto;
+  margin-top: 1rem;
   text-align: center;
   font-size: 1rem;
   text-transform: lowercase;
   background-color: transparent;
   color: #080c46;
+  text-decoration: underline;
+  text-decoration-style: double;
 }
 
 .add-collection-btn:hover {
-  text-decoration: underline;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 576px) {
@@ -463,6 +465,19 @@ COLLECTIONS
     margin-top: 5rem;
     transform: translateX(20%);
   }
+}
+
+.no-collection {
+  margin: 4rem auto;
+}
+
+.no-collection p {
+  text-transform: capitalize;
+  background-color: #080c46;
+  color: #f0d90b;
+  display: inline-block;
+  padding: 0.5rem 0.2rem;
+  border-radius: 0.2rem;
 }
 
 /*
@@ -750,6 +765,9 @@ CARDS
     font-size: 1.5rem;
     position: relative;
   }
+}
+.no-card {
+  margin: 7rem 1rem;
 }
 
 /*************************/

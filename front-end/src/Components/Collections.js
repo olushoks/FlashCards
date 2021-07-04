@@ -20,13 +20,20 @@ const Collections = () => {
   };
 
   if (collections.length === 0) {
-    <div>
-      <div className="collection-header">
-        <h2 className="collection-title">collections</h2>
-        <button className="btn add-collection-btn">add new collection</button>
+    return (
+      <div className="collections-div">
+        <div className="collection-header">
+          <h2 className="collection-title">collections</h2>
+          <div className="no-collection">
+            <p>there is currently no collection in the Database.</p>
+            <button className="btn add-collection-btn" onClick={addCollection}>
+              add new collection
+              <BiListPlus />
+            </button>
+          </div>
+        </div>
       </div>
-      <p>there is no collection in the DB.</p>
-    </div>;
+    );
   }
 
   return (
